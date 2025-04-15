@@ -1,216 +1,270 @@
-/* Base Theme Variables */
+/* Base Theme Variables - Noetic Labs Design System (NLDS) */
 :root {
     /* Typography */
-    --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-serif: "IBM Plex Serif", Georgia, serif;
-    --font-mono: "IBM Plex Mono", monospace;
+    --nlds-font-sans:
+        "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --nlds-font-serif: "Alegreya", Georgia, serif;
+    --nlds-font-mono: "IBM Plex Mono", monospace;
 
     /* Accent Colors */
-    --accent-primary: #ff9351;
-    --accent-primary-hover: #ff7f2e;
-    --accent-primary-active: #f07733;
+    --nlds-accent-primary: #ff9351;
+    --nlds-accent-primary-hover: #ff7f2e;
+    --nlds-accent-primary-active: #f07733;
 
     /* White Theme (Default) */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f4f4f4;
-    --bg-tertiary: #e0e0e0;
-    --text-primary: #161616;
-    --text-secondary: #525252;
-    --border-color: #e0e0e0;
-    --accent-bg: #ededed;
-    --accent-bg-hover: #e5e5e5;
-    --link-color: #0f62fe;
-    --link-hover-color: #0043ce;
-    --link-active-bg: var(--accent-bg);
-    --input-bg: #ffffff;
-    --input-border: #8d8d8d;
-    --input-text: #161616;
-    --input-focus-border: #ff9351;
-    --input-focus-shadow: rgba(255, 147, 81, 0.3);
-    --disabled-bg: #f4f4f4;
-    --disabled-text: #a8a8a8;
-    --scrollbar-thumb: #c6c6c6;
-    --scrollbar-track: #f4f4f4;
-    --code-bg: #fafafa;
-    --code-bg-inline: #ededed;
-    --code-text: #161616;
-    --button-secondary-bg: #e0e0e0;
-    --button-secondary-text: #161616;
-    --button-secondary-hover-bg: #d1d1d1;
-    --field-01: #f4f4f4;
-    --field-hover-01: #e8e8e8;
-    --layer-01: #f4f4f4;
-    --layer-02: #ffffff;
-    --layer-accent-01: #e0e0e0;
-    --layer-accent-hover-01: #d1d1d1;
-    --inverse-01: #ffffff;
-    --inverse-02: #f4f4f4;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --nlds-bg-primary: #ffffff;
+    --nlds-bg-secondary: #f4f4f4;
+    --nlds-bg-tertiary: #e0e0e0;
+    --nlds-text-primary: #161616;
+    --nlds-text-secondary: #525252;
+    --nlds-border-color: #e0e0e0;
+    --nlds-accent-bg: #ededed;
+    --nlds-accent-bg-hover: #e5e5e5;
+    --nlds-link-color: #0f62fe;
+    --nlds-link-hover-color: #0043ce;
+    --nlds-link-active-bg: var(--nlds-accent-bg); /* Updated reference */
+    --nlds-input-bg: #ffffff;
+    --nlds-input-border: #8d8d8d;
+    --nlds-input-text: #161616;
+    --nlds-input-focus-border: var(
+        --nlds-accent-primary
+    ); /* Updated reference */
+    --nlds-input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --nlds-disabled-bg: #f4f4f4;
+    --nlds-disabled-text: #a8a8a8;
+    --nlds-scrollbar-thumb: #c6c6c6;
+    --nlds-scrollbar-track: #f4f4f4;
+    --nlds-code-bg: #fafafa;
+    --nlds-code-bg-inline: #ededed;
+    --nlds-code-text: #161616;
+    --nlds-button-secondary-bg: #e0e0e0;
+    --nlds-button-secondary-text: #161616;
+    --nlds-button-secondary-hover-bg: #d1d1d1;
+    --nlds-field-01: #f4f4f4;
+    --nlds-field-hover-01: #e8e8e8;
+    --nlds-layer-01: #f4f4f4;
+    --nlds-layer-02: #ffffff;
+    --nlds-layer-accent-01: #e0e0e0;
+    --nlds-layer-accent-hover-01: #d1d1d1;
+    --nlds-inverse-01: #ffffff;
+    --nlds-inverse-02: #f4f4f4;
+    --nlds-shadow: rgba(0, 0, 0, 0.1);
     color-scheme: light;
 }
 
 /* b10 Theme (Very Light Gray) */
 [data-theme="b10"] {
-    --bg-primary: #f4f4f4;
-    --bg-secondary: #e0e0e0;
-    --bg-tertiary: #d1d1d1;
-    --text-primary: #161616;
-    --text-secondary: #525252;
-    --border-color: #c6c6c6;
-    --accent-bg: #e5e5e5;
-    --accent-bg-hover: #d1d1d1;
-    --link-color: #0f62fe;
-    --link-hover-color: #0043ce;
-    --input-bg: #ffffff;
-    --input-border: #8d8d8d;
-    --field-01: #ffffff;
-    --field-hover-01: #e8e8e8;
-    --layer-01: #e0e0e0;
-    --layer-02: #f4f4f4;
-    --layer-accent-01: #d1d1d1;
-    --layer-accent-hover-01: #c6c6c6;
+    --nlds-bg-primary: #f4f4f4;
+    --nlds-bg-secondary: #e0e0e0;
+    --nlds-bg-tertiary: #d1d1d1;
+    --nlds-text-primary: #161616;
+    --nlds-text-secondary: #525252;
+    --nlds-border-color: #c6c6c6;
+    --nlds-accent-bg: #e5e5e5;
+    --nlds-accent-bg-hover: #d1d1d1;
+    --nlds-link-color: #0f62fe;
+    --nlds-link-hover-color: #0043ce;
+    /* --nlds-link-active-bg inherits from :root if not redefined */
+    --nlds-input-bg: #ffffff;
+    --nlds-input-border: #8d8d8d;
+    /* --nlds-input-text inherits from :root */
+    /* --nlds-input-focus-border inherits from :root */
+    /* --nlds-input-focus-shadow inherits from :root */
+    /* --nlds-disabled-bg inherits from :root */
+    /* --nlds-disabled-text inherits from :root */
+    /* --nlds-scrollbar-thumb inherits from :root */
+    --nlds-scrollbar-track: #e0e0e0; /* Adjusted based on new bg */
+    /* --nlds-code-bg inherits from :root */
+    /* --nlds-code-bg-inline inherits from :root */
+    /* --nlds-code-text inherits from :root */
+    /* --nlds-button-secondary-bg inherits from :root */
+    /* --nlds-button-secondary-text inherits from :root */
+    /* --nlds-button-secondary-hover-bg inherits from :root */
+    --nlds-field-01: #ffffff;
+    --nlds-field-hover-01: #e8e8e8;
+    --nlds-layer-01: #e0e0e0;
+    --nlds-layer-02: #f4f4f4;
+    --nlds-layer-accent-01: #d1d1d1;
+    --nlds-layer-accent-hover-01: #c6c6c6;
+    /* --nlds-inverse-01 inherits from :root */
+    /* --nlds-inverse-02 inherits from :root */
+    /* --nlds-shadow inherits from :root */
     color-scheme: light;
 }
 
 /* b80 Theme (Dark Gray) */
 [data-theme="b80"] {
-    --bg-primary: #393939;
-    --bg-secondary: #4c4c4c;
-    --bg-tertiary: #606060;
-    --text-primary: #f4f4f4;
-    --text-secondary: #c6c6c6;
-    --border-color: #606060;
-    --accent-bg: #525252;
-    --accent-bg-hover: #636363;
-    --link-color: #78a9ff;
-    --link-hover-color: #a6c8ff;
-    --link-active-bg: var(--accent-bg);
-    --input-bg: #4c4c4c;
-    --input-border: #6f6f6f;
-    --input-text: #f4f4f4;
-    --input-focus-border: #ff9351;
-    --input-focus-shadow: rgba(255, 147, 81, 0.3);
-    --disabled-bg: #525252;
-    --disabled-text: #8d8d8d;
-    --scrollbar-thumb: #6f6f6f;
-    --scrollbar-track: #4c4c4c;
-    --code-bg: #4c4c4c;
-    --code-bg-inline: #525252;
-    --code-text: #f4f4f4;
-    --button-secondary-bg: #525252;
-    --button-secondary-text: #f4f4f4;
-    --button-secondary-hover-bg: #636363;
-    --field-01: #4c4c4c;
-    --field-hover-01: #525252;
-    --layer-01: #4c4c4c;
-    --layer-02: #393939;
-    --layer-accent-01: #606060;
-    --layer-accent-hover-01: #6f6f6f;
-    --inverse-01: #161616;
-    --inverse-02: #393939;
-    --shadow: rgba(0, 0, 0, 0.4);
+    --nlds-bg-primary: #393939;
+    --nlds-bg-secondary: #4c4c4c;
+    --nlds-bg-tertiary: #606060;
+    --nlds-text-primary: #f4f4f4;
+    --nlds-text-secondary: #c6c6c6;
+    --nlds-border-color: #606060;
+    --nlds-accent-bg: #525252;
+    --nlds-accent-bg-hover: #636363;
+    --nlds-link-color: #78a9ff;
+    --nlds-link-hover-color: #a6c8ff;
+    --nlds-link-active-bg: var(--nlds-accent-bg); /* Updated reference */
+    --nlds-input-bg: #4c4c4c;
+    --nlds-input-border: #6f6f6f;
+    --nlds-input-text: #f4f4f4;
+    --nlds-input-focus-border: var(
+        --nlds-accent-primary
+    ); /* Updated reference */
+    --nlds-input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --nlds-disabled-bg: #525252;
+    --nlds-disabled-text: #8d8d8d;
+    --nlds-scrollbar-thumb: #6f6f6f;
+    --nlds-scrollbar-track: #4c4c4c;
+    --nlds-code-bg: #4c4c4c;
+    --nlds-code-bg-inline: #525252;
+    --nlds-code-text: #f4f4f4;
+    --nlds-button-secondary-bg: #525252;
+    --nlds-button-secondary-text: #f4f4f4;
+    --nlds-button-secondary-hover-bg: #636363;
+    --nlds-field-01: #4c4c4c;
+    --nlds-field-hover-01: #525252;
+    --nlds-layer-01: #4c4c4c;
+    --nlds-layer-02: #393939;
+    --nlds-layer-accent-01: #606060;
+    --nlds-layer-accent-hover-01: #6f6f6f;
+    --nlds-inverse-01: #161616;
+    --nlds-inverse-02: #393939;
+    --nlds-shadow: rgba(0, 0, 0, 0.4);
     color-scheme: dark;
 }
 
 /* b90 Theme (Very Dark Gray) */
 [data-theme="b90"] {
-    --bg-primary: #262626;
-    --bg-secondary: #393939;
-    --bg-tertiary: #4c4c4c;
-    --text-primary: #f4f4f4;
-    --text-secondary: #c6c6c6;
-    --border-color: #525252;
-    --accent-bg: #393939;
-    --accent-bg-hover: #4c4c4c;
-    --link-color: #78a9ff;
-    --link-hover-color: #a6c8ff;
-    --link-active-bg: var(--accent-bg);
-    --input-bg: #393939;
-    --input-border: #6f6f6f;
-    --input-text: #f4f4f4;
-    --input-focus-border: #ff9351;
-    --input-focus-shadow: rgba(255, 147, 81, 0.3);
-    --disabled-bg: #393939;
-    --disabled-text: #6f6f6f;
-    --scrollbar-thumb: #6f6f6f;
-    --scrollbar-track: #393939;
-    --code-bg: #393939;
-    --code-bg-inline: #525252;
-    --code-text: #f4f4f4;
-    --button-secondary-bg: #393939;
-    --button-secondary-text: #f4f4f4;
-    --button-secondary-hover-bg: #4c4c4c;
-    --field-01: #393939;
-    --field-hover-01: #4c4c4c;
-    --layer-01: #393939;
-    --layer-02: #262626;
-    --layer-accent-01: #525252;
-    --layer-accent-hover-01: #606060;
-    --inverse-01: #161616;
-    --inverse-02: #262626;
-    --shadow: rgba(0, 0, 0, 0.6);
+    --nlds-bg-primary: #262626;
+    --nlds-bg-secondary: #393939;
+    --nlds-bg-tertiary: #4c4c4c;
+    --nlds-text-primary: #f4f4f4;
+    --nlds-text-secondary: #c6c6c6;
+    --nlds-border-color: #525252;
+    --nlds-accent-bg: #393939;
+    --nlds-accent-bg-hover: #4c4c4c;
+    --nlds-link-color: #78a9ff;
+    --nlds-link-hover-color: #a6c8ff;
+    --nlds-link-active-bg: var(--nlds-accent-bg); /* Updated reference */
+    --nlds-input-bg: #393939;
+    --nlds-input-border: #6f6f6f;
+    --nlds-input-text: #f4f4f4;
+    --nlds-input-focus-border: var(
+        --nlds-accent-primary
+    ); /* Updated reference */
+    --nlds-input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --nlds-disabled-bg: #393939;
+    --nlds-disabled-text: #6f6f6f;
+    --nlds-scrollbar-thumb: #6f6f6f;
+    --nlds-scrollbar-track: #393939;
+    --nlds-code-bg: #393939;
+    --nlds-code-bg-inline: #525252;
+    --nlds-code-text: #f4f4f4;
+    --nlds-button-secondary-bg: #393939;
+    --nlds-button-secondary-text: #f4f4f4;
+    --nlds-button-secondary-hover-bg: #4c4c4c;
+    --nlds-field-01: #393939;
+    --nlds-field-hover-01: #4c4c4c;
+    --nlds-layer-01: #393939;
+    --nlds-layer-02: #262626;
+    --nlds-layer-accent-01: #525252;
+    --nlds-layer-accent-hover-01: #606060;
+    --nlds-inverse-01: #161616;
+    --nlds-inverse-02: #262626;
+    --nlds-shadow: rgba(0, 0, 0, 0.6);
     color-scheme: dark;
 }
 
 /* b100 Theme (Black) */
 [data-theme="b100"] {
-    --bg-primary: #161616;
-    --bg-secondary: #262626;
-    --bg-tertiary: #393939;
-    --text-primary: #f4f4f4;
-    --text-secondary: #c6c6c6;
-    --border-color: #393939;
-    --accent-bg: #262626;
-    --accent-bg-hover: #393939;
-    --link-color: #78a9ff;
-    --link-hover-color: #a6c8ff;
-    --link-active-bg: var(--accent-bg);
-    --input-bg: #262626;
-    --input-border: #525252;
-    --input-text: #f4f4f4;
-    --input-focus-border: #ff9351;
-    --input-focus-shadow: rgba(255, 147, 81, 0.3);
-    --disabled-bg: #262626;
-    --disabled-text: #6f6f6f;
-    --scrollbar-thumb: #525252;
-    --scrollbar-track: #262626;
-    --code-bg: #262626;
-    --code-bg-inline: #262626;
-    --code-text: #f4f4f4;
-    --button-secondary-bg: #262626;
-    --button-secondary-text: #f4f4f4;
-    --button-secondary-hover-bg: #393939;
-    --field-01: #262626;
-    --field-hover-01: #393939;
-    --layer-01: #262626;
-    --layer-02: #161616;
-    --layer-accent-01: #393939;
-    --layer-accent-hover-01: #4c4c4c;
-    --inverse-01: #161616;
-    --inverse-02: #262626;
-    --shadow: rgba(0, 0, 0, 0.8);
+    --nlds-bg-primary: #161616;
+    --nlds-bg-secondary: #262626;
+    --nlds-bg-tertiary: #393939;
+    --nlds-text-primary: #f4f4f4;
+    --nlds-text-secondary: #c6c6c6;
+    --nlds-border-color: #393939;
+    --nlds-accent-bg: #262626;
+    --nlds-accent-bg-hover: #393939;
+    --nlds-link-color: #78a9ff;
+    --nlds-link-hover-color: #a6c8ff;
+    --nlds-link-active-bg: var(--nlds-accent-bg); /* Updated reference */
+    --nlds-input-bg: #262626;
+    --nlds-input-border: #525252;
+    --nlds-input-text: #f4f4f4;
+    --nlds-input-focus-border: var(
+        --nlds-accent-primary
+    ); /* Updated reference */
+    --nlds-input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --nlds-disabled-bg: #262626;
+    --nlds-disabled-text: #6f6f6f;
+    --nlds-scrollbar-thumb: #525252;
+    --nlds-scrollbar-track: #262626;
+    --nlds-code-bg: #262626;
+    --nlds-code-bg-inline: #262626; /* Corrected from original, likely intended */
+    --nlds-code-text: #f4f4f4;
+    --nlds-button-secondary-bg: #262626;
+    --nlds-button-secondary-text: #f4f4f4;
+    --nlds-button-secondary-hover-bg: #393939;
+    --nlds-field-01: #262626;
+    --nlds-field-hover-01: #393939;
+    --nlds-layer-01: #262626;
+    --nlds-layer-02: #161616;
+    --nlds-layer-accent-01: #393939;
+    --nlds-layer-accent-hover-01: #4c4c4c;
+    --nlds-inverse-01: #161616;
+    --nlds-inverse-02: #262626;
+    --nlds-shadow: rgba(0, 0, 0, 0.8);
     color-scheme: dark;
 }
 
-/* Utility Classes to use accent color */
-.accent-bg {
-    background-color: var(--accent-primary);
+/* Utility Classes using NLDS variables */
+/* Renamed classes for clarity */
+.nlds-accent-bg {
+    background-color: var(--nlds-accent-primary);
+    /* Consider adding a --nlds-text-on-accent variable */
     color: white;
 }
 
-.accent-text {
-    color: var(--accent-primary);
+.nlds-accent-text {
+    color: var(--nlds-accent-primary);
 }
 
-.accent-border {
-    border-color: var(--accent-primary);
+.nlds-accent-border {
+    border-color: var(--nlds-accent-primary);
 }
 
-/* Site-wide Styles */
+/* Site-wide Styles using NLDS variables */
 a {
-    color: var(--link-color);
+    color: var(--nlds-link-color);
+    text-decoration: none; /* Added for better base styling */
 }
 
 a:hover {
-    color: var(--link-hover-color);
+    color: var(--nlds-link-hover-color);
+    text-decoration: underline; /* Added for better affordance */
 }
+
+a:active {
+    /* Consider adding active styles, e.g., background or slight shift */
+    background-color: var(
+        --nlds-link-active-bg
+    ); /* Example using existing var */
+}
+
+/* Add basic body styling using NLDS variables */
+body {
+    background-color: var(--nlds-bg-primary);
+    color: var(--nlds-text-primary);
+    font-family: var(--nlds-font-sans);
+    margin: 0; /* Remove default browser margin */
+    line-height: 1.5; /* Set a sensible default line height */
+}
+
+/* Example of using layer variables */
+/* .nlds-card-example {
+    background-color: var(--nlds-layer-02);
+    border: 1px solid var(--nlds-border-color);
+    padding: 1rem;
+    box-shadow: 0 2px 4px var(--nlds-shadow);
+    } */

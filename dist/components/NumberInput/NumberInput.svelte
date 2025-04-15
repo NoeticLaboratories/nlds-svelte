@@ -1,4 +1,5 @@
 <script lang="ts">
+    // No changes needed in the script section for variable updates
     import { createEventDispatcher, onMount } from "svelte";
     // Import icons (install carbon-icons-svelte if you haven't)
     import ErrorFilled from "~icons/carbon/error-filled";
@@ -261,85 +262,82 @@
 </div>
 
 <style>
-    /* --- Variable Defaults (Uses core.css) --- */
+    /* --- Variable Defaults (Local to component) --- */
     :root {
-        /* Using px for consistency, adjust if needed */
+        /* Layout/Sizing specific to NumberInput */
         --ni-height-sm: 2rem; /* 32px */
         --ni-height-md: 2.5rem; /* 40px */
         --ni-height-lg: 3rem; /* 48px */
         --ni-padding-horizontal: 1rem; /* 16px */
-        --ni-padding-vertical: calc(
-            0.375rem - 1px
-        ); /* Approx center align text */
+        --ni-padding-vertical: calc(0.375rem - 1px);
         --ni-font-size-sm: 0.75rem; /* 12px */
         --ni-font-size-md: 0.875rem; /* 14px */
         --ni-font-size-lg: 1rem; /* 16px */
         --ni-label-size: 0.75rem; /* 12px */
         --ni-helper-size: 0.75rem; /* 12px */
         --ni-icon-size: 1rem; /* 16px */
-        --ni-stepper-width: 2.5rem; /* Width of the steppers area */
+        --ni-stepper-width: 2.5rem;
         --ni-outline-width: 2px;
-        --ni-outline-offset: -2px; /* Offset inside */
+        --ni-outline-offset: -2px;
 
-        /* DANGER/WARN COLORS (Add these to your core.css themes!) */
-        /* Use placeholders if not in core.css yet */
-        --danger-color: #da1e28; /* Placeholder */
-        --warning-color: #f1c21b; /* Placeholder */
+        /* DANGER/WARN COLORS (Local placeholders if not in NLDS core) */
+        /* These are used below if not overridden by NLDS vars */
+        --danger-color: #da1e28;
+        --warning-color: #f1c21b;
     }
 
     /* --- Base Wrapper --- */
     .themed-ni-wrapper {
         display: flex;
         flex-direction: column;
-        font-family: var(--font-sans, sans-serif);
+        font-family: var(--nlds-font-sans, sans-serif);
     }
 
     /* --- Label --- */
     .themed-ni-label {
         font-size: var(--ni-label-size);
-        font-weight: 400; /* Carbon uses regular weight */
-        margin-bottom: 0.5rem; /* Spacing below label */
-        color: var(--text-secondary, #525252); /* Use secondary text color */
+        font-weight: 400;
+        margin-bottom: 0.5rem;
+        color: var(--nlds-text-secondary, #525252);
         line-height: 1.33;
         cursor: default;
     }
     .themed-ni-wrapper--disabled .themed-ni-label {
-        color: var(--disabled-text, #a8a8a8);
+        color: var(--nlds-disabled-text, #a8a8a8);
     }
 
     /* --- Control Container (Input + Steppers + Icons) --- */
     .themed-ni-control {
         position: relative;
         display: flex;
-        min-width: 6rem; /* Minimum width to avoid squishing */
+        min-width: 6rem;
     }
 
     /* --- Input Field --- */
     .themed-ni-field {
-        flex-grow: 1; /* Take available space */
-        width: 100%; /* Ensure it fills container */
-        height: var(--ni-height-md); /* Default height */
-        font-size: var(--ni-font-size-md); /* Default font size */
+        flex-grow: 1;
+        width: 100%;
+        height: var(--ni-height-md);
+        font-size: var(--ni-font-size-md);
         padding-top: var(--ni-padding-vertical);
         padding-bottom: var(--ni-padding-vertical);
         padding-left: var(--ni-padding-horizontal);
-        /* Dynamic padding-right based on steppers/icons */
         padding-right: calc(
             var(--ni-padding-horizontal) + var(--ni-stepper-width)
         );
         border-width: 1px;
         border-style: solid;
-        border-color: var(--input-border, #8d8d8d); /* Theme border */
-        background-color: var(--input-bg, #ffffff); /* Theme background */
-        color: var(--input-text, #161616); /* Theme text */
-        appearance: textfield; /* Hide browser default number spinners */
-        border-radius: 0; /* Carbon default */
+        border-color: var(--nlds-input-border, #8d8d8d);
+        background-color: var(--nlds-input-bg, #ffffff);
+        color: var(--nlds-input-text, #161616);
+        appearance: textfield;
+        border-radius: 0;
         box-sizing: border-box;
         transition:
             border-color 70ms ease-in-out,
             outline 70ms ease-in-out;
     }
-    /* Remove spinners cross-browser */
+    /* Remove spinners */
     .themed-ni-field::-webkit-outer-spin-button,
     .themed-ni-field::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -351,11 +349,11 @@
 
     /* Focus State */
     .themed-ni-field:focus:not([readonly]) {
-        outline: var(--ni-outline-width) solid var(--accent-primary, #ff9351); /* Theme accent */
+        outline: var(--ni-outline-width) solid var(--nlds-accent-primary, #ff9351);
         outline-offset: var(--ni-outline-offset);
     }
 
-    /* Simplified selector for when steppers are hidden */
+    /* Hide steppers padding adjustment */
     .themed-ni-wrapper:not(.themed-ni-wrapper--readonly) .themed-ni-field:not(.themed-ni-steppers + *) {
         padding-right: var(--ni-padding-horizontal);
     }
@@ -365,7 +363,7 @@
     .themed-ni-wrapper--warning .themed-ni-field {
         padding-right: calc(
             var(--ni-padding-horizontal) + var(--ni-icon-size) + 0.5rem
-        ); /* Space for icon */
+        );
     }
     /* Adjust padding when steppers AND icon are present */
     .themed-ni-wrapper--invalid:not([class*="hide-steppers"]) .themed-ni-field,
@@ -392,44 +390,41 @@
         flex-direction: column;
         height: 100%;
         width: var(--ni-stepper-width);
-        border-left: 1px solid var(--input-border, #8d8d8d);
-        overflow: hidden; /* Clip button corners if needed */
+        border-left: 1px solid var(--nlds-input-border, #8d8d8d);
+        overflow: hidden;
     }
     .themed-ni-stepper-btn {
-        flex: 1 1 50%; /* Each takes half the height */
+        flex: 1 1 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 0;
-        background-color: var(
-            --field-01,
-            #f4f4f4
-        ); /* Use theme field background */
+        background-color: var(--nlds-field-01, #f4f4f4);
         border: none;
-        border-bottom: 1px solid var(--input-border, #8d8d8d);
+        border-bottom: 1px solid var(--nlds-input-border, #8d8d8d);
         cursor: pointer;
-        color: var(--text-primary, #161616);
+        color: var(--nlds-text-primary, #161616);
         transition: background-color 70ms ease-in-out;
     }
     .themed-ni-stepper-btn--dec {
-        border-bottom: none; /* Decrement button has no bottom border */
+        border-bottom: none;
     }
     .themed-ni-stepper-btn svg {
         fill: currentColor;
-        width: 8px; /* Match SVG size */
+        width: 8px;
         height: 4px;
     }
     .themed-ni-stepper-btn:hover:not(:disabled) {
-        background-color: var(--field-hover-01, #e8e8e8);
+        background-color: var(--nlds-field-hover-01, #e8e8e8);
     }
     .themed-ni-stepper-btn:focus-visible {
-        outline: 1px solid var(--accent-primary);
+        outline: 1px solid var(--nlds-accent-primary);
         outline-offset: -1px;
-        z-index: 1; /* Ensure focus visible */
+        z-index: 1;
     }
     .themed-ni-stepper-btn:disabled {
-        background-color: var(--field-01, #f4f4f4); /* Keep base background */
-        color: var(--disabled-text, #a8a8a8); /* Disabled text color */
+        background-color: var(--nlds-field-01, #f4f4f4);
+        color: var(--nlds-disabled-text, #a8a8a8);
         cursor: not-allowed;
     }
 
@@ -437,20 +432,19 @@
     .themed-ni-icon {
         position: absolute;
         top: 50%;
-        /* Position depends on whether steppers are shown */
         right: calc(var(--ni-padding-horizontal) / 2);
         transform: translateY(-50%);
-        fill: var(--text-primary); /* Default fill */
-        pointer-events: none; /* Don't interfere with input clicks */
+        fill: var(--nlds-text-primary);
+        pointer-events: none;
         width: var(--ni-icon-size);
         height: var(--ni-icon-size);
     }
 
     .themed-ni-icon--invalid {
-        fill: var(--danger-color, #da1e28);
+        fill: var(--danger-color); /* Use local placeholder */
     }
     .themed-ni-icon--warning {
-        fill: var(--warning-color, #f1c21b);
+        fill: var(--warning-color); /* Use local placeholder */
     }
 
     /* --- Helper Text --- */
@@ -458,111 +452,103 @@
         margin-top: 0.25rem;
         font-size: var(--ni-helper-size);
         line-height: 1.33;
-        color: var(--text-secondary, #525252); /* Default helper text */
+        color: var(--nlds-text-secondary, #525252);
     }
     .themed-ni-helper-text--invalid {
-        color: var(--danger-color, #da1e28);
+        color: var(--danger-color); /* Use local placeholder */
     }
     .themed-ni-helper-text--warning {
-        color: var(--warning-color, #f1c21b);
+        color: var(--warning-color); /* Use local placeholder */
     }
     .themed-ni-wrapper--disabled .themed-ni-helper-text {
-        color: var(--disabled-text, #a8a8a8);
+        color: var(--nlds-disabled-text, #a8a8a8);
     }
 
     /* --- Invalid State Styling --- */
     .themed-ni-wrapper--invalid .themed-ni-field {
-        border-color: var(--danger-color, #da1e28);
+        border-color: var(--danger-color); /* Use local placeholder */
     }
     .themed-ni-wrapper--invalid .themed-ni-field:focus {
-        outline-color: var(
-            --danger-color,
-            #da1e28
-        ); /* Keep outline color consistent with error */
+        outline-color: var(--danger-color); /* Use local placeholder */
     }
 
     /* --- Warning State Styling --- */
     .themed-ni-wrapper--warning .themed-ni-field {
-        border-color: var(--warning-color, #f1c21b);
-        /* Optional: Carbon uses a thicker outline for warning focus */
-        /* outline: 1px solid var(--warning-color, #f1c21b); */
+        border-color: var(--warning-color); /* Use local placeholder */
     }
     .themed-ni-wrapper--warning .themed-ni-field:focus {
-        outline-color: var(--warning-color, #f1c21b);
+        outline-color: var(--warning-color); /* Use local placeholder */
     }
 
     /* --- Disabled State Styling --- */
     .themed-ni-wrapper--disabled .themed-ni-field {
-        border-color: var(
-            --disabled-bg,
-            #f4f4f4
-        ); /* Carbon uses background color for border */
-        background-color: var(--disabled-bg, #f4f4f4);
-        color: var(--disabled-text, #a8a8a8);
+        border-color: var(--nlds-disabled-bg, #f4f4f4);
+        background-color: var(--nlds-disabled-bg, #f4f4f4);
+        color: var(--nlds-disabled-text, #a8a8a8);
         cursor: not-allowed;
-        outline: none !important; /* No focus outline on disabled */
+        outline: none !important;
     }
     .themed-ni-wrapper--disabled .themed-ni-steppers {
-        border-left-color: var(--disabled-bg, #f4f4f4);
+        border-left-color: var(--nlds-disabled-bg, #f4f4f4);
     }
     .themed-ni-wrapper--disabled .themed-ni-stepper-btn {
-        border-bottom-color: var(--disabled-bg, #f4f4f4);
+        border-bottom-color: var(--nlds-disabled-bg, #f4f4f4);
+        /* Disabled state already handled for stepper buttons */
     }
 
     /* --- Readonly State Styling --- */
     .themed-ni-wrapper--readonly .themed-ni-field {
         border-color: transparent;
-        background-color: var(
-            --layer-01,
-            #f4f4f4
-        ); /* Slightly different background */
+        background-color: var(--nlds-layer-01, #f4f4f4);
         cursor: default;
         outline: none !important;
     }
-    /* Hide steppers in readonly via JS/template, no extra CSS needed */
 
     /* --- Light Variant Styling --- */
     .themed-ni-wrapper--light .themed-ni-field {
-        /* Invert colors for dark backgrounds */
-        border-color: var(
-            --input-bg,
-            #ffffff
-        ); /* Use light bg color as border */
-        background-color: var(--layer-01, #f4f4f4); /* Use a gray background */
-        color: var(--text-primary, #161616); /* Ensure text is readable */
+        border-color: var(--nlds-input-bg, #ffffff);
+        background-color: var(--nlds-layer-01, #f4f4f4);
+        color: var(--nlds-text-primary, #161616);
     }
     .themed-ni-wrapper--light .themed-ni-steppers {
-        border-left-color: var(--input-bg, #ffffff);
+        border-left-color: var(--nlds-input-bg, #ffffff);
     }
     .themed-ni-wrapper--light .themed-ni-stepper-btn {
-        background-color: var(
-            --layer-accent-01,
-            #e0e0e0
-        ); /* Darker stepper bg */
-        border-bottom-color: var(--input-bg, #ffffff);
-        color: var(--text-primary);
+        background-color: var(--nlds-layer-accent-01, #e0e0e0);
+        border-bottom-color: var(--nlds-input-bg, #ffffff);
+        color: var(--nlds-text-primary);
     }
     .themed-ni-wrapper--light .themed-ni-stepper-btn:hover:not(:disabled) {
-        background-color: var(--layer-accent-hover-01, #d1d1d1);
+        background-color: var(--nlds-layer-accent-hover-01, #d1d1d1);
     }
     .themed-ni-wrapper--light .themed-ni-stepper-btn:disabled {
-        background-color: var(--layer-accent-01, #e0e0e0);
-        color: var(--disabled-text);
+        background-color: var(--nlds-layer-accent-01, #e0e0e0);
+        color: var(--nlds-disabled-text);
     }
     .themed-ni-wrapper--light .themed-ni-label,
     .themed-ni-wrapper--light .themed-ni-helper-text {
-        color: var(--inverse-01, #f4f4f4); /* Light text for labels/helpers */
+        color: var(--nlds-inverse-01, #f4f4f4);
     }
-    /* Adjust state colors for light variant if needed */
+    /* Adjust state colors for light variant */
     .themed-ni-wrapper--light.themed-ni-wrapper--disabled .themed-ni-field {
-        border-color: var(--disabled-text);
-        background-color: var(--disabled-text);
-        color: var(--bg-primary);
+        /* Use disabled vars directly for simplicity in light mode */
+        border-color: var(--nlds-disabled-bg);
+        background-color: var(--nlds-disabled-bg);
+        color: var(--nlds-disabled-text);
     }
     .themed-ni-wrapper--light.themed-ni-wrapper--disabled .themed-ni-label,
     .themed-ni-wrapper--light.themed-ni-wrapper--disabled
         .themed-ni-helper-text {
-        color: var(--disabled-text);
+        color: var(--nlds-disabled-text);
+    }
+    /* Light variant invalid/warning still use local placeholders for border/text */
+    .themed-ni-wrapper--light.themed-ni-wrapper--invalid .themed-ni-helper-text {
+        color: var(--danger-color); /* Or adjust if light theme needs different danger color */
+        fill: var(--danger-color);
+    }
+     .themed-ni-wrapper--light.themed-ni-wrapper--warning .themed-ni-helper-text {
+        color: var(--warning-color); /* Or adjust if light theme needs different warning color */
+        fill: var(--warning-color);
     }
 
     /* --- Size Variants --- */
@@ -574,8 +560,6 @@
         height: var(--ni-height-lg);
         font-size: var(--ni-font-size-lg);
     }
-
-    /* Removed unused icon size adjustment selectors */
 
     /* --- Utility --- */
     .themed-visually-hidden {

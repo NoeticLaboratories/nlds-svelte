@@ -58,7 +58,7 @@
 
 <input
   type="text"
-  class="minimal-text-input"
+  class="nlds-text-input"
   {id}
   {name}
   {placeholder}
@@ -72,40 +72,40 @@
 />
 
 <style>
-  .minimal-text-input {
+  .nlds-text-input {
     display: block; /* Or inline-block if preferred */
     width: 100%; /* Take up container width */
     padding: 0.5rem 0.75rem; /* Adjust padding as needed */
     font-size: 1rem;
     font-family: inherit; /* Use the font from the surrounding context */
     line-height: 1.5;
-    color: var(--input-text);
-    background-color: var(--input-bg);
+    color: var(--nlds-input-text);
+    background-color: var(--nlds-input-bg);
     background-clip: padding-box;
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--nlds-input-border);
     appearance: none; /* Remove default system styling */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
   }
 
   /* Minimal focus state */
-  .minimal-text-input:focus {
-    color: #212529;
-    background-color: #fff;
+  .nlds-text-input:focus {
+    color: var(--nlds-input-text);
+    background-color: var(--nlds-input-bg);
     /* border-color: #86b7fe; /* Highlight color on focus */
-    outline: 2px solid var(--input-focus-border);
+    outline: 2px solid var(--nlds-input-focus-border);
     outline-offset: -2px;
     /* box-shadow: 0 0 0 0.2rem var(--input-focus-shadow); */
   }
 
   /* Placeholder styling */
-  .minimal-text-input::placeholder {
+  .nlds-text-input::placeholder {
     color: #6c757d;
     opacity: 1;
   }
 
   /* Disabled state */
-  .minimal-text-input:disabled {
-    background-color: var(--disabled-bg);
+  .nlds-text-input:disabled {
+    background-color: var(--nlds-disabled-bg);
     opacity: 1;
     cursor: not-allowed;
   }

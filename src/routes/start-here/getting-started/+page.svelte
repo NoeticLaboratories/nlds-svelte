@@ -232,7 +232,7 @@ import '@noeticlabs/nlds-svelte/styles/core.css';
         margin-bottom: 3rem;
     }
     .component-description {
-        font-size: 1.125rem; /* Slightly larger for intro */
+        font-size: 1rem; /* Slightly larger for intro */
         margin-bottom: 2rem;
         color: var(--nlds-text-secondary);
     }

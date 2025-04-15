@@ -365,7 +365,7 @@ code, pre {
     .component-description {
         font-size: 1rem; /* Should ideally come from type scale */
         margin-bottom: 2rem;
-        /* color: var(--nlds-text-secondary); */
+        color: var(--nlds-text-secondary);
     }
 
     /* Font Families Styles */

@@ -55,9 +55,9 @@
     $: initialValue = value === undefined || value === null || value === "";
 </script>
 
-<div class="minimal-select-wrapper">
+<div class="nlds-select-wrapper">
     <select
-        class="minimal-select"
+        class="nlds-select"
         {id}
         {name}
         {disabled}
@@ -81,30 +81,30 @@
             <option value={option.value}>{option.label}</option>
         {/each}
     </select>
-    <div class="minimal-select-arrow" aria-hidden="true">
+    <div class="nlds-select-arrow" aria-hidden="true">
         <ChevronDownIcon />
     </div>
 </div>
 
 <style>
-    .minimal-select-wrapper {
+    .nlds-select-wrapper {
         position: relative;
         display: inline-block; /* Adjust as needed, 'block' for full width */
         width: auto; /* Or set a specific width */
     }
 
-    .minimal-select {
+    .nlds-select {
         display: block;
         width: 100%;
         padding: 0.5rem 2rem 0.5rem 0.75rem; /* Space for text and arrow */
-        font-size: 0.9rem; /* Slightly smaller for topbar */
+        font-size: 0.9rem;
         font-family: inherit;
         font-weight: 400;
         line-height: 1.5;
-        color: var(--input-text);
-        background-color: var(--input-bg);
+        color: var(--nlds-input-text);
+        background-color: var(--nlds-input-bg);
         background-clip: padding-box;
-        /* border: 1px solid var(--input-border); */
+        /* border: 1px solid var(--nlds-input-border); */
         border: none;
         appearance: none; /* Remove default system appearance */
         box-sizing: border-box;
@@ -112,35 +112,36 @@
     }
 
     /* Style placeholder state */
-    .minimal-select.has-placeholder {
-        color: var(--text-secondary);
+    .nlds-select.has-placeholder {
+        color: var(--nlds-text-secondary);
     }
     /* Ensure selected value isn't greyed out if it matches placeholder value after selection */
-    .minimal-select:not(.has-placeholder) {
-        color: var(--input-text);
+    .nlds-select:not(.has-placeholder) {
+        color: var(--nlds-input-text);
     }
 
-    .minimal-select:focus {
-        border-color: var(--input-focus-border);
-        outline: 2px solid var(--input-focus-border);
+    .nlds-select:focus {
+        /* border-color: var(--nlds-input-focus-border); */
+        outline: 2px solid var(--nlds-input-focus-border);
         outline-offset: -2px;
-        /* box-shadow: 0 0 0 0.2rem var(--input-focus-shadow); */
+        /* box-shadow: 0 0 0 0.2rem var(--nlds-input-focus-shadow); */
     }
 
-    .minimal-select:disabled {
-        background-color: var(--disabled-bg);
-        opacity: 1;
+    .nlds-select:disabled {
+        background-color: var(--nlds-disabled-bg);
+        color: var(--nlds-disabled-text); /* Added based on NLDS vars */
+        opacity: 1; /* Usually managed by color/bg, but kept */
         cursor: not-allowed;
     }
 
     /* Custom Arrow */
-    .minimal-select-arrow {
+    .nlds-select-arrow {
         position: absolute;
         top: 50%;
         right: 0.75rem;
         transform: translateY(-50%);
         pointer-events: none; /* Allow clicks to pass through to the select */
-        color: var(--text-secondary); /* Icon color */
+        color: var(--nlds-text-secondary);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -148,12 +149,12 @@
     }
 
     /* You may need to adjust size based on the actual icon size */
-    .minimal-select-arrow :global(svg) {
+    .nlds-select-arrow :global(svg) {
         width: 16px;
         height: 16px;
     }
 
-    .minimal-select:disabled ~ .minimal-select-arrow {
-        opacity: 0.6;
+    .nlds-select:disabled ~ .nlds-select-arrow {
+        opacity: 0.6; /* We shall maybe use var(--nlds-disabled-text) or similar */
     }
 </style>

@@ -15,8 +15,7 @@
         Welcome to the gallery for the <strong
             >Noetic Labs Design System (NLDS) Svelte</strong
         > component library. This is a collection of reusable UI components developed
-        by Noetic Laboratories, built with Svelte 5 for use within our SvelteKit
-        applications.
+        by Noetic Labs, built with Svelte 5 for use within our SvelteKit applications.
     </p>
 </section>
 
@@ -187,7 +186,7 @@
         /* Use this class for lead paragraphs if needed */
         font-size: 1rem;
         margin-bottom: 2rem;
-        /* color: var(--nlds-text-secondary); */
+        color: var(--nlds-text-secondary);
     }
 
     /* Ensure list items have enough space */

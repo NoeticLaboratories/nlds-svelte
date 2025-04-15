@@ -280,36 +280,36 @@
 {/if}
 
 <style>
-    /* --- Variables (Reference your core.css) --- */
+    /* --- Variables (Reference NLDS core.css) --- */
     .themed-cs-container,
     .themed-cs--inline {
-        /* Using component scope for defaults/overrides */
-        --cs-background: var(--code-bg, #f4f4f4);
-        --cs-background-inline: var(--code-bg-inline, #ededed);
+        /* Using component scope for defaults/overrides, referencing NLDS vars */
+        --cs-background: var(--nlds-code-bg, #f4f4f4);
+        --cs-background-inline: var(--nlds-code-bg-inline, #ededed);
         --cs-text-color: var(
-            --code-text,
+            --nlds-code-text,
             #161616
-        ); /* Base text, tokens colored by hljs theme */
-        --cs-border-color: var(--border-color, #e0e0e0);
-        --cs-focus-color: var(--accent-primary, #ff9351);
+        ); /* Updated - Base text, tokens colored by hljs theme */
+        --cs-border-color: var(--nlds-border-color, #e0e0e0);
+        --cs-focus-color: var(--nlds-accent-primary, #ff9351);
         --cs-button-bg: transparent; /* Ghost-like */
-        --cs-button-bg-hover: var(--accent-bg-hover, #e5e5e5);
-        --cs-button-bg-active: var(--accent-bg, #d1d1d1);
-        --cs-button-text-color: var(--text-secondary, #525252);
-        --cs-button-text-hover: var(--text-primary, #161616);
+        --cs-button-bg-hover: var(--nlds-accent-bg-hover, #e5e5e5);
+        --cs-button-bg-active: var(--nlds-accent-bg, #e0e0e0);
+        --cs-button-text-color: var(--nlds-text-secondary, #525252);
+        --cs-button-text-hover: var(--nlds-text-primary, #161616);
         --cs-copy-feedback-color: var(
-            --success-color,
-            #198038
-        ); /* Add --success-color to theme? */
-        --cs-line-height: 1.4;
-        --cs-font-family: var(--font-mono, monospace);
-        --cs-font-size: 0.875rem; /* 14px */
-        --cs-inline-font-size: 0.9em; /* Slightly smaller for inline */
-        --cs-padding: 1rem;
-        --cs-button-padding: 0.5rem;
-        --cs-button-size: 2rem; /* Approx square size */
-        --cs-border-radius: 0; /* Consistent with Carbon */
-        --cs-outline-offset: -2px;
+            --nlds-success-color, /* Consider adding --nlds-success-color to core */
+            #198038 /* Default green if not defined */
+        );
+        --cs-line-height: 1.4; /* Component specific */
+        --cs-font-family: var(--nlds-font-mono, monospace);
+        --cs-font-size: 0.875rem; /* Component specific (14px) */
+        --cs-inline-font-size: 0.9em; /* Component specific */
+        --cs-padding: 1rem; /* Component specific */
+        --cs-button-padding: 0.5rem; /* Component specific */
+        --cs-button-size: 2rem; /* Component specific */
+        --cs-border-radius: 0; /* Component specific (Consistent with Carbon) */
+        --cs-outline-offset: -2px; /* Component specific */
     }
 
     /* --- Base Container Styles --- */
@@ -328,13 +328,11 @@
     .themed-cs-container.themed-cs--single {
         display: flex;
         align-items: center;
-        /* Padding adjusted by button container */
     }
 
     /* --- Code Content Area --- */
     .themed-cs-content {
-        overflow: hidden; /* Required for max-height collapse */
-        /* Transition causes issues with max-height: auto, handled differently */
+        overflow: hidden;
     }
 
     /* --- Pre & Code tags --- */
@@ -353,12 +351,11 @@
     /* Text wrapping */
     .themed-cs-pre.themed-cs--wrap {
         white-space: pre-wrap;
-        word-break: break-all; /* Or break-word */
+        word-break: break-all;
     }
-    /* Code tag reset (already partly done by hljs base) */
+    /* Code tag reset */
     .themed-cs-code {
-        display: block; /* Ensure block display */
-        /* Inherit styles */
+        display: block;
         background: none !important;
         color: inherit !important;
         font-family: inherit !important;
@@ -371,11 +368,11 @@
 
     /* Single line pre/code adjustments */
     .themed-cs-container.themed-cs--single .themed-cs-pre {
-        padding-top: 0.5rem; /* Less vertical padding */
+        padding-top: 0.5rem;
         padding-bottom: 0.5rem;
         padding-right: calc(
             var(--cs-button-size) + var(--cs-padding) * 0.5
-        ); /* Space for button */
+        );
         overflow-x: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -391,27 +388,26 @@
     /* --- Inline Specific --- */
     .themed-cs--inline.hljs {
         display: inline;
-        font-family: var(--cs-font-family);
+        font-family: var(--cs-font-family); /* Mono font */
         background-color: var(--cs-background-inline);
         padding: 0.1em 0.4em;
         border-radius: 3px;
         font-size: var(--cs-inline-font-size);
-        color: var(--cs-text-color);
-        white-space: normal; /* Allow inline wrapping */
+        color: var(--cs-text-color); /* Use code text color */
+        white-space: normal;
         line-height: inherit;
         vertical-align: baseline;
     }
 
     /* --- Collapse/Expand --- */
     .themed-cs-content.themed-cs--collapsed {
-        /* Calculate max-height based on line count and line height */
         max-height: calc(
             var(--max-collapsed-lines, 15) * var(--cs-line-height) *
                 var(--cs-font-size) + (var(--cs-padding) * 2)
         );
-        position: relative; /* For pseudo-element fade */
+        position: relative;
     }
-    /* Optional: Add fade effect at bottom when collapsed */
+    /* Optional: Fade effect at bottom when collapsed */
     .themed-cs-content.themed-cs--collapsed::after {
         content: "";
         position: absolute;
@@ -422,7 +418,7 @@
         background: linear-gradient(
             to bottom,
             transparent,
-            var(--cs-background)
+            var(--cs-background) /* Use the actual code background */
         );
         pointer-events: none;
     }
@@ -435,10 +431,10 @@
         justify-content: center;
         padding: var(--cs-button-padding);
         font-size: 0.875rem; /* ~14px */
-        font-family: var(--font-sans, sans-serif); /* Use UI font */
+        font-family: var(--nlds-font-sans, sans-serif);
         line-height: 1;
         background-color: var(--cs-button-bg);
-        border: 1px solid transparent; /* No border typically */
+        border: 1px solid transparent;
         border-radius: var(--cs-border-radius);
         cursor: pointer;
         color: var(--cs-button-text-color);
@@ -462,43 +458,45 @@
     .themed-cs-copy-btn:focus-visible {
         outline: 2px solid var(--cs-focus-color);
         outline-offset: var(--cs-outline-offset);
-        position: relative; /* Ensure outline is visible */
+        position: relative;
         z-index: 3;
     }
     .themed-cs-expand-btn:disabled,
     .themed-cs-copy-btn:disabled {
         cursor: default;
         background-color: transparent;
+        /* Consider using nlds-disabled-text color if needed */
+        /* color: var(--nlds-disabled-text); */
     }
 
     /* --- Expand Button Specific --- */
     .themed-cs-expand-btn {
+        /* Note: Positioned via JS if needed, or adjust positioning */
+        /* Example static positioning: */
         position: absolute;
         bottom: calc(var(--cs-padding) / 2);
         right: calc(var(--cs-padding) / 2);
-        width: auto; /* Allow width to fit text */
-        height: auto; /* Allow height to fit text */
+        width: auto; /* Fit text */
+        height: auto; /* Fit text */
         padding: 0.3rem 0.75rem;
-        z-index: 2; /* Above fade effect */
+        z-index: 2;
     }
 
     /* --- Copy Button Specific --- */
     .themed-cs-copy-btn-container {
-		position: relative; /* Needed for absolute positioning of the Tooltip */
-            /* Ensure it's still laid out correctly */
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: calc(var(--cs-padding) / 2);
-            z-index: 2;
+		position: absolute; /* Absolute within .themed-cs-container */
+		top: 0;
+		right: 0;
+		padding: calc(var(--cs-padding) / 2); /* Consistent spacing */
+		z-index: 2;
 	}
     .themed-cs-copy-btn {
-        position: relative; /* For tooltip positioning */
+        position: relative; /* Relative positioning is fine now */
     }
 
     .themed-cs-copy-btn.themed-cs--copied {
         color: var(--cs-copy-feedback-color);
-        background-color: transparent; /* No background change when copied */
+        background-color: transparent; /* Keep transparent when copied */
     }
     .themed-cs-copy-btn.themed-cs--copied:hover {
         background-color: transparent;
@@ -506,7 +504,6 @@
 
     /* --- Utility --- */
     .themed-visually-hidden {
-        /* Standard accessible hide */
         position: absolute !important;
         height: 1px;
         width: 1px;

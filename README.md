@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
-A collection of reusable Svelte components developed by Noetic Laboratories. This library provides a set of UI components built with Svelte 5 for use in your Svelte or SvelteKit applications.
+A collection of reusable Svelte components developed by Noetic Labs. This library provides a set of UI components built with Svelte 5 for use in your Svelte or SvelteKit applications.
 
 **Note:** We are currently using SvelteKit specific features and conventions, so this library will not work with Svelte applications that do not use SvelteKit until further notice.
 
