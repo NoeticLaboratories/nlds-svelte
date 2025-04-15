@@ -489,7 +489,6 @@
 		right: 0;
 		padding: calc(var(--cs-padding) / 2); /* Consistent spacing */
 		z-index: 2;
-		/* This container now holds the button AND the tooltip */
 	}
     .themed-cs-copy-btn {
         position: relative; /* Relative positioning is fine now */

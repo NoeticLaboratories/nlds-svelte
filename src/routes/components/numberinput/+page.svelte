@@ -282,7 +282,7 @@
         </div>
         <!-- Use themed Button -->
         <Button
-            href="/api/numberinput"
+            href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/NumberInput"
             kind="ghost"
             icon={CodeIcon}
             target="_blank"

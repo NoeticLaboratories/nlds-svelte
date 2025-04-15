@@ -123,20 +123,20 @@
 <style>
     /* --- Variable Defaults (Uses core.css) --- */
     .sl-wrapper {
-        --sl-background: var(--bg-primary, #fff);
-        --sl-background-zebra: var(--layer-01, #f4f4f4);
-        --sl-background-selected: var(--accent-bg, #e5e5e5);
-        --sl-background-selected-hover: var(--accent-bg-hover, #d1d1d1);
-        --sl-border-color: var(--border-color, #e0e0e0);
-        --sl-text-primary: var(--text-primary, #161616);
-        --sl-text-secondary: var(--text-secondary, #525252);
+        --sl-background: var(--nlds-bg-primary, #fff);
+        --sl-background-zebra: var(--nlds-bg-zebra, #f4f4f4);
+        --sl-background-selected: var(--nlds-bg-selected, #e5e5e5);
+        --sl-background-selected-hover: var(--nlds-bg-selected-hover, #d1d1d1);
+        --sl-border-color: var(--nlds-border-color, #e0e0e0);
+        --sl-text-primary: var(--nlds-text-primary, #161616);
+        --sl-text-secondary: var(--nlds-text-secondary, #525252);
         --sl-text-header: var(
-            --text-secondary,
+            --nlds-text-secondary,
             #525252
         ); /* Headers often less prominent */
-        --sl-text-disabled: var(--disabled-text, #a8a8a8);
+        --sl-text-disabled: var(--nlds-text-disabled, #a8a8a8);
         --sl-focus-outline: var(
-            --accent-primary,
+            --nlds-focus-outline,
             #ff9351
         ); /* Use theme focus */
         --sl-padding-vertical: 1rem; /* 16px */

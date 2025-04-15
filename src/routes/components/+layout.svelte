@@ -13,7 +13,7 @@
     <footer class="component-page-footer">
         <div class="edit-links">
             <a
-                href="https://github.com/your-org/my-components-svelte/edit/main/src/lib/components/{componentName}"
+                href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/routes/components/{componentName}"
                 target="_blank"
                 rel="noopener"
             >
