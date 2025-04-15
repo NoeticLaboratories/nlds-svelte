@@ -48,8 +48,8 @@ npm install github:NoeticLaboratories/nlds-svelte#branch-name/OR/commit-hash
 You need to import the core stylesheet in your application. This is typically done in your main layout file (e.g., `src/routes/+layout.svelte` in SvelteKit) or your main application entry point.
 
 ```
-  import '@noeticlabs/nlds-svelte/styles/core.css';
-  // Import other global styles or components if needed
+import '@noeticlabs/nlds-svelte/styles/core.css';
+// Import other global styles or components if needed
 ```
 
 Or in a JavaScript/TypeScript entry file:
@@ -64,10 +64,12 @@ import '@noeticlabs/nlds-svelte/styles/core.css';
 Import components directly from their path within the library as defined in `package.json` exports.
 
 ```
+<script>
   import { Button } from '@noeticlabs/nlds-svelte';
 
   let count = 0;
   const handleButtonClick = () => count++;
+</script>
 
 <h1>Welcome to NLDS Svelte</h1>
 
