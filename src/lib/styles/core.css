@@ -1,0 +1,216 @@
+/* Base Theme Variables */
+:root {
+    /* Typography */
+    --font-sans: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif: "IBM Plex Serif", Georgia, serif;
+    --font-mono: "IBM Plex Mono", monospace;
+
+    /* Accent Colors */
+    --accent-primary: #ff9351;
+    --accent-primary-hover: #ff7f2e;
+    --accent-primary-active: #f07733;
+
+    /* White Theme (Default) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f4f4f4;
+    --bg-tertiary: #e0e0e0;
+    --text-primary: #161616;
+    --text-secondary: #525252;
+    --border-color: #e0e0e0;
+    --accent-bg: #ededed;
+    --accent-bg-hover: #e5e5e5;
+    --link-color: #0f62fe;
+    --link-hover-color: #0043ce;
+    --link-active-bg: var(--accent-bg);
+    --input-bg: #ffffff;
+    --input-border: #8d8d8d;
+    --input-text: #161616;
+    --input-focus-border: #ff9351;
+    --input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --disabled-bg: #f4f4f4;
+    --disabled-text: #a8a8a8;
+    --scrollbar-thumb: #c6c6c6;
+    --scrollbar-track: #f4f4f4;
+    --code-bg: #fafafa;
+    --code-bg-inline: #ededed;
+    --code-text: #161616;
+    --button-secondary-bg: #e0e0e0;
+    --button-secondary-text: #161616;
+    --button-secondary-hover-bg: #d1d1d1;
+    --field-01: #f4f4f4;
+    --field-hover-01: #e8e8e8;
+    --layer-01: #f4f4f4;
+    --layer-02: #ffffff;
+    --layer-accent-01: #e0e0e0;
+    --layer-accent-hover-01: #d1d1d1;
+    --inverse-01: #ffffff;
+    --inverse-02: #f4f4f4;
+    --shadow: rgba(0, 0, 0, 0.1);
+    color-scheme: light;
+}
+
+/* b10 Theme (Very Light Gray) */
+[data-theme="b10"] {
+    --bg-primary: #f4f4f4;
+    --bg-secondary: #e0e0e0;
+    --bg-tertiary: #d1d1d1;
+    --text-primary: #161616;
+    --text-secondary: #525252;
+    --border-color: #c6c6c6;
+    --accent-bg: #e5e5e5;
+    --accent-bg-hover: #d1d1d1;
+    --link-color: #0f62fe;
+    --link-hover-color: #0043ce;
+    --input-bg: #ffffff;
+    --input-border: #8d8d8d;
+    --field-01: #ffffff;
+    --field-hover-01: #e8e8e8;
+    --layer-01: #e0e0e0;
+    --layer-02: #f4f4f4;
+    --layer-accent-01: #d1d1d1;
+    --layer-accent-hover-01: #c6c6c6;
+    color-scheme: light;
+}
+
+/* b80 Theme (Dark Gray) */
+[data-theme="b80"] {
+    --bg-primary: #393939;
+    --bg-secondary: #4c4c4c;
+    --bg-tertiary: #606060;
+    --text-primary: #f4f4f4;
+    --text-secondary: #c6c6c6;
+    --border-color: #606060;
+    --accent-bg: #525252;
+    --accent-bg-hover: #636363;
+    --link-color: #78a9ff;
+    --link-hover-color: #a6c8ff;
+    --link-active-bg: var(--accent-bg);
+    --input-bg: #4c4c4c;
+    --input-border: #6f6f6f;
+    --input-text: #f4f4f4;
+    --input-focus-border: #ff9351;
+    --input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --disabled-bg: #525252;
+    --disabled-text: #8d8d8d;
+    --scrollbar-thumb: #6f6f6f;
+    --scrollbar-track: #4c4c4c;
+    --code-bg: #4c4c4c;
+    --code-bg-inline: #525252;
+    --code-text: #f4f4f4;
+    --button-secondary-bg: #525252;
+    --button-secondary-text: #f4f4f4;
+    --button-secondary-hover-bg: #636363;
+    --field-01: #4c4c4c;
+    --field-hover-01: #525252;
+    --layer-01: #4c4c4c;
+    --layer-02: #393939;
+    --layer-accent-01: #606060;
+    --layer-accent-hover-01: #6f6f6f;
+    --inverse-01: #161616;
+    --inverse-02: #393939;
+    --shadow: rgba(0, 0, 0, 0.4);
+    color-scheme: dark;
+}
+
+/* b90 Theme (Very Dark Gray) */
+[data-theme="b90"] {
+    --bg-primary: #262626;
+    --bg-secondary: #393939;
+    --bg-tertiary: #4c4c4c;
+    --text-primary: #f4f4f4;
+    --text-secondary: #c6c6c6;
+    --border-color: #525252;
+    --accent-bg: #393939;
+    --accent-bg-hover: #4c4c4c;
+    --link-color: #78a9ff;
+    --link-hover-color: #a6c8ff;
+    --link-active-bg: var(--accent-bg);
+    --input-bg: #393939;
+    --input-border: #6f6f6f;
+    --input-text: #f4f4f4;
+    --input-focus-border: #ff9351;
+    --input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --disabled-bg: #393939;
+    --disabled-text: #6f6f6f;
+    --scrollbar-thumb: #6f6f6f;
+    --scrollbar-track: #393939;
+    --code-bg: #393939;
+    --code-bg-inline: #525252;
+    --code-text: #f4f4f4;
+    --button-secondary-bg: #393939;
+    --button-secondary-text: #f4f4f4;
+    --button-secondary-hover-bg: #4c4c4c;
+    --field-01: #393939;
+    --field-hover-01: #4c4c4c;
+    --layer-01: #393939;
+    --layer-02: #262626;
+    --layer-accent-01: #525252;
+    --layer-accent-hover-01: #606060;
+    --inverse-01: #161616;
+    --inverse-02: #262626;
+    --shadow: rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+}
+
+/* b100 Theme (Black) */
+[data-theme="b100"] {
+    --bg-primary: #161616;
+    --bg-secondary: #262626;
+    --bg-tertiary: #393939;
+    --text-primary: #f4f4f4;
+    --text-secondary: #c6c6c6;
+    --border-color: #393939;
+    --accent-bg: #262626;
+    --accent-bg-hover: #393939;
+    --link-color: #78a9ff;
+    --link-hover-color: #a6c8ff;
+    --link-active-bg: var(--accent-bg);
+    --input-bg: #262626;
+    --input-border: #525252;
+    --input-text: #f4f4f4;
+    --input-focus-border: #ff9351;
+    --input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --disabled-bg: #262626;
+    --disabled-text: #6f6f6f;
+    --scrollbar-thumb: #525252;
+    --scrollbar-track: #262626;
+    --code-bg: #262626;
+    --code-bg-inline: #262626;
+    --code-text: #f4f4f4;
+    --button-secondary-bg: #262626;
+    --button-secondary-text: #f4f4f4;
+    --button-secondary-hover-bg: #393939;
+    --field-01: #262626;
+    --field-hover-01: #393939;
+    --layer-01: #262626;
+    --layer-02: #161616;
+    --layer-accent-01: #393939;
+    --layer-accent-hover-01: #4c4c4c;
+    --inverse-01: #161616;
+    --inverse-02: #262626;
+    --shadow: rgba(0, 0, 0, 0.8);
+    color-scheme: dark;
+}
+
+/* Utility Classes to use accent color */
+.accent-bg {
+    background-color: var(--accent-primary);
+    color: white;
+}
+
+.accent-text {
+    color: var(--accent-primary);
+}
+
+.accent-border {
+    border-color: var(--accent-primary);
+}
+
+/* Site-wide Styles */
+a {
+    color: var(--link-color);
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
