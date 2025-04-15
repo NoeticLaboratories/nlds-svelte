@@ -2,7 +2,6 @@
     import "../app.css";
     import "$lib/styles/core.css";
     import { page } from "$app/stores";
-    import { onMount } from "svelte";
     import { browser } from "$app/environment";
     import { theme, applyInitialTheme } from "$lib/stores/themeStore.js";
     import GithubIcon from "~icons/carbon/logo-github";
@@ -20,11 +19,14 @@
     // This is the source of truth for all sidebar items BEFORE filtering
     const sidebarSectionsBase = [
         {
-          title: "Start here",
-          items: [
-            { name: "Introduction", path: "/" },
-            { name: "Getting Started", path: "/getting-started" },
-          ],
+            title: "Start here",
+            items: [
+                { name: "Introduction", path: "/start-here/introduction" },
+                {
+                    name: "Getting Started",
+                    path: "/start-here/getting-started",
+                },
+            ],
         },
         {
             title: "Elements",
@@ -49,10 +51,10 @@
                 // Keep the component list directly here or imported
                 // { name: 'Accordion', path: '/components/accordion' },
                 // { name: 'AspectRatio', path: '/components/aspectratio' },
-                { name: 'Button', path: '/components/button' },
+                { name: "Button", path: "/components/button" },
                 // { name: 'Card', path: '/components/card' },
                 // { name: 'Checkbox', path: '/components/checkbox' },
-                { name: 'CodeSnippet', path: '/components/codesnippet'},
+                { name: "CodeSnippet", path: "/components/codesnippet" },
                 // { name: 'Dialog', path: '/components/dialog' },
                 // { name: 'Dropdown', path: '/components/dropdown' },
                 // { name: 'Input', path: '/components/input' },
@@ -61,7 +63,7 @@
                 // { name: 'Popover', path: '/components/popover' },
                 // { name: 'Progress', path: '/components/progress' },
                 // { name: 'RadioGroup', path: '/components/radiogroup' },
-                { name: 'Select', path: '/components/select' },
+                { name: "Select", path: "/components/select" },
                 // { name: 'Slider', path: '/components/slider' },
                 // { name: 'Switch', path: '/components/switch' },
                 // { name: 'Table', path: '/components/table' },
@@ -168,7 +170,9 @@
                                     href={item.path}
                                     class:active={item.path === "/"
                                         ? $page.url.pathname === "/"
-                                        : $page.url.pathname.startsWith(item.path)}
+                                        : $page.url.pathname.startsWith(
+                                              item.path,
+                                          )}
                                 >
                                     {item.name}
                                 </a>
