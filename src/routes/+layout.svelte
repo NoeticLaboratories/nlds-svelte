@@ -214,8 +214,8 @@
         justify-content: space-between;
         align-items: center;
         padding: 0.75rem 1.5rem;
-        background-color: var(--bg-primary);
-        border-bottom: 1px solid var(--border-color);
+        background-color: var(--nlds-bg-primary);
+        border-bottom: 1px solid var(--nlds-border-color);
         z-index: 10;
         transition:
             background-color 0.2s ease-in-out,
@@ -234,13 +234,10 @@
         gap: 1rem;
     }
 
-    .theme-selector-wrapper {
-    }
-
     .site-name a {
         font-weight: 600;
         font-size: 1.1rem;
-        color: var(--text-primary);
+        color: var(--nlds-text-primary);
         text-decoration: none;
     }
 
@@ -258,12 +255,12 @@
     /* --- Sidebar Styles --- */
     .sidebar {
         grid-area: sidebar;
-        border-right: 1px solid var(--border-color);
+        border-right: 1px solid var(--nlds-border-color);
         padding: 1.5rem 1rem;
-        background: var(--bg-primary);
+        background: var(--nlds-bg-primary);
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+        scrollbar-color: var(--nlds-scrollbar-thumb) var(--nlds-scrollbar-track);
         transition:
             background-color 0.2s ease-in-out,
             border-color 0.2s ease-in-out;
@@ -272,12 +269,12 @@
         width: 6px;
     }
     .sidebar::-webkit-scrollbar-track {
-        background: var(--scrollbar-track);
+        background: var(--nlds-scrollbar-track);
     }
     .sidebar::-webkit-scrollbar-thumb {
-        background-color: var(--scrollbar-thumb);
+        background-color: var(--nlds-scrollbar-thumb);
         border-radius: 3px;
-        border: 1px solid var(--scrollbar-track);
+        border: 1px solid var(--nlds-scrollbar-track);
     }
     .sidebar::-webkit-scrollbar-thumb:hover {
         background-color: #a8a8a8; /* Or a variable */
@@ -298,7 +295,7 @@
     .section-title {
         font-size: 0.75rem;
         font-weight: 600;
-        color: var(--text-secondary);
+        color: var(--nlds-text-secondary);
         text-transform: uppercase;
         letter-spacing: 0.05em;
         margin: 0 0 0.75rem 0.5rem;
@@ -308,23 +305,23 @@
         display: block;
         padding: 0.5rem 1rem;
         text-decoration: none;
-        color: var(--link-color);
+        color: var(--nlds-link-color);
         border-radius: 4px;
         margin-bottom: 2px;
         font-size: 0.9rem;
         transition: background-color 0.15s ease;
     }
     nav a:hover {
-        background: var(--accent-bg-hover);
+        background: var(--nlds-accent-bg-hover);
     }
     nav a.active {
-        background: var(--link-active-bg);
+        background: var(--nlds-link-active-bg);
         font-weight: 500;
-        color: var(--text-primary);
+        color: var(--nlds-text-primary);
     }
     .no-results {
         font-size: 0.9rem;
-        color: var(--text-secondary);
+        color: var(--nlds-text-secondary);
         padding: 0.25rem 1rem;
         font-style: italic;
     }
@@ -335,18 +332,18 @@
         padding: 2rem;
         overflow-y: auto;
         scrollbar-width: thin;
-        scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+        scrollbar-color: var(--nlds-scrollbar-thumb) var(--nlds-scrollbar-track);
     }
     .content::-webkit-scrollbar {
         width: 6px;
     }
     .content::-webkit-scrollbar-track {
-        background: var(--scrollbar-track);
+        background: var(--nlds-scrollbar-track);
     }
     .content::-webkit-scrollbar-thumb {
-        background-color: var(--scrollbar-thumb);
+        background-color: var(--nlds-scrollbar-thumb);
         border-radius: 3px;
-        border: 1px solid var(--scrollbar-track);
+        border: 1px solid var(--nlds-scrollbar-track);
     }
     .content::-webkit-scrollbar-thumb:hover {
         background-color: #a8a8a8; /* Or a variable */

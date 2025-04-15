@@ -646,7 +646,7 @@
     h2 {
         margin-top: 2.5rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid var(--border-color, #e0e0e0);
+        border-bottom: 1px solid var(--nlds-border-color, #e0e0e0);
         padding-bottom: 0.5rem;
     }
 
@@ -691,13 +691,13 @@
         margin-bottom: 1rem;
         /* padding-bottom: 1rem; */
         font-size: 0.875rem; /* 14px */
-        border-bottom: 1px solid var(--border-color, #e0e0e0);
+        border-bottom: 1px solid var(--nlds-border-color, #e0e0e0);
         gap: 1rem; /* Add gap for wrapping */
     }
 
     .component-header .info {
-        font-family: var(--font-sans, sans-serif);
-        color: var(--text-secondary, #525252);
+        font-family: var(--nlds-font-sans, sans-serif);
+        color: var(--nlds-text-secondary, #525252);
     }
     /* Ensure button doesn't shrink too much */
     .component-header :global(a.themed-btn) {
@@ -708,18 +708,18 @@
     /* Demo Area Styles */
     .component-demo {
         padding: 2rem;
-        border: 1px solid var(--border-color, #e0e0e0);
+        border: 1px solid var(--nlds-border-color, #e0e0e0);
         border-radius: 0;
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
-        background-color: var(--bg-secondary, #f4f4f4);
+        background-color: var(--nlds-bg-secondary, #f4f4f4);
     }
 
     .demo-value {
         margin-top: 1rem;
         font-size: 0.875rem;
-        color: var(--text-secondary);
-        font-family: var(--font-mono);
+        color: var(--nlds-text-secondary);
+        font-family: var(--nlds-font-mono);
     }
 
     .demo-row {
@@ -741,16 +741,16 @@
 
     .option-label {
         font-size: 0.75rem;
-        color: var(--text-secondary, #525252);
+        color: var(--nlds-text-secondary, #525252);
         margin-top: 0.5rem;
-        font-family: var(--font-mono);
+        font-family: var(--nlds-font-mono);
     }
 
     .status-indicator {
         display: flex;
         align-items: center;
         font-size: 0.875rem;
-        color: var(--text-secondary);
+        color: var(--nlds-text-secondary);
     }
 
     .status-indicator :global(svg) {
@@ -758,11 +758,11 @@
     }
 
     .status-indicator :global(.icon-error) {
-        color: var(--support-error, #da1e28);
+        color: var(--nlds-support-error, #da1e28);
     }
 
     .status-indicator :global(.icon-warning) {
-        color: var(--support-warning, #f1c21b);
+        color: var(--nlds-support-warning, #f1c21b);
     }
 
     /* API Docs Specific Styles (using StructuredList) */

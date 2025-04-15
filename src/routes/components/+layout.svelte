@@ -37,12 +37,12 @@
     .component-page-footer {
         margin-top: 3rem;
         padding-top: 1rem;
-        border-top: 1px solid var(--border-color);
+        border-top: 1px solid var(--nlds-border-color);
         font-size: 0.9rem;
     }
 
     .edit-links a {
-        color: var(--text-secondary);
+        color: var(--nlds-text-secondary);
         text-decoration: none;
     }
 
