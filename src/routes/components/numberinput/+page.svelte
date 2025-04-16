@@ -278,7 +278,7 @@
     <div class="component-header">
         <div class="info">
             <!-- Use semantic time element if appropriate -->
-            <time datetime="2025-04-13">Updated on 2025-04-13</time>
+            <time datetime="2025-04-15">Updated on 2025-04-15</time>
         </div>
         <!-- Use themed Button -->
         <Button
