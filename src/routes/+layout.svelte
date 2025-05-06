@@ -52,7 +52,7 @@
                 // { name: 'Accordion', path: '/components/accordion' },
                 // { name: 'AspectRatio', path: '/components/aspectratio' },
                 { name: "Button", path: "/components/button" },
-                // { name: 'Card', path: '/components/card' },
+                { name: "Card", path: "/components/card" },
                 // { name: 'Checkbox', path: '/components/checkbox' },
                 { name: "CodeSnippet", path: "/components/codesnippet" },
                 // { name: 'Dialog', path: '/components/dialog' },

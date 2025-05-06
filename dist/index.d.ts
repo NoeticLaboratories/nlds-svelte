@@ -1,4 +1,5 @@
 export { default as Button } from "./components/Button/Button.svelte";
+export { default as Card } from "./components/Card/Card.svelte";
 export { default as CodeSnippet } from "./components/CodeSnippet/CodeSnippet.svelte";
 export { default as NumberInput } from "./components/NumberInput/NumberInput.svelte";
 export { default as StructuredList } from "./components/StructuredList/StructuredList.svelte";
