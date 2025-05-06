@@ -4,8 +4,8 @@ type TextInput = SvelteComponent<{
     disabled?: boolean | undefined;
     id?: string | undefined;
     value?: string | undefined;
-    name?: string | undefined;
     placeholder?: string | undefined;
+    name?: string | undefined;
 }, {
     input: CustomEvent<any>;
     change: CustomEvent<any>;
@@ -21,8 +21,8 @@ declare const TextInput: $$__sveltets_2_IsomorphicComponent<{
     disabled?: boolean | undefined;
     id?: string | undefined;
     value?: string | undefined;
-    name?: string | undefined;
     placeholder?: string | undefined;
+    name?: string | undefined;
 }, {
     input: CustomEvent<any>;
     change: CustomEvent<any>;

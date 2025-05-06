@@ -4,12 +4,12 @@ type Select = SvelteComponent<{
     disabled?: boolean | undefined;
     id?: string | undefined;
     value?: string | number | undefined;
-    name?: string | undefined;
-    placeholder?: string | undefined;
     options?: {
         value: string | number;
         label: string;
     }[] | undefined;
+    placeholder?: string | undefined;
+    name?: string | undefined;
 }, {
     change: CustomEvent<any>;
 } & {
@@ -22,12 +22,12 @@ declare const Select: $$__sveltets_2_IsomorphicComponent<{
     disabled?: boolean | undefined;
     id?: string | undefined;
     value?: string | number | undefined;
-    name?: string | undefined;
-    placeholder?: string | undefined;
     options?: {
         value: string | number;
         label: string;
     }[] | undefined;
+    placeholder?: string | undefined;
+    name?: string | undefined;
 }, {
     change: CustomEvent<any>;
 } & {
