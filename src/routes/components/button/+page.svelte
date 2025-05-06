@@ -10,10 +10,10 @@
     import StructuredListHeader from "$lib/components/StructuredList/StructuredListHeader.svelte";
 
     // Icons (Assuming these exist based on common libraries like carbon-icons-svelte or similar)
-    import CodeIcon from "~icons/carbon/code";
-    import AddIcon from "~icons/carbon/add";
-    import DownloadIcon from "~icons/carbon/download";
-    import SettingsIcon from "~icons/carbon/settings"; // Example for icon-only
+    import Code from "carbon-icons-svelte/lib/Code.svelte";
+    import Add from "carbon-icons-svelte/lib/Add.svelte";
+    import Download from "carbon-icons-svelte/lib/Download.svelte";
+    import Settings from "carbon-icons-svelte/lib/Settings.svelte";
 
     // Page specific state (less needed for Button compared to NumberInput)
     let isDisabled = false;
@@ -39,27 +39,27 @@
 
     const exampleCodeIcons = `<script lang="ts">
   import Button from '$lib/components/Button/Button.svelte';
-  import AddIcon from "~icons/carbon/add";
-  import DownloadIcon from "~icons/carbon/download";
+  import Add from "carbon-icons-svelte/lib/Add.svelte";
+  import Download from "carbon-icons-svelte/lib/Download.svelte";
 <\/script>
 
-<Button icon={AddIcon}>Button with icon</Button>
-<Button kind="secondary" icon={DownloadIcon}>Secondary with icon</Button>`;
+<Button icon={Add}>Button with icon</Button>
+<Button kind="secondary" icon={Download}>Secondary with icon</Button>`;
 
     const exampleCodeIconOnly = `<script lang="ts">
   import Button from '$lib/components/Button/Button.svelte';
-  import SettingsIcon from "~icons/carbon/settings";
+  import Settings from "carbon-icons-svelte/lib/Settings.svelte";
 <\/script>
 
 <Button
   kind="ghost"
-  icon={SettingsIcon}
+  icon={Settings}
   hasIconOnly
   iconDescription="Settings"
 />
 <Button
   kind="primary"
-  icon={SettingsIcon}
+  icon={Settings}
   hasIconOnly
   iconDescription="Settings"
   size="lg"
@@ -196,7 +196,7 @@
         <Button
             href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/Button"
             kind="ghost"
-            icon={CodeIcon}
+            icon={Code}
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -285,9 +285,8 @@
     </p>
 
     <div class="component-demo demo-button-group">
-        <Button icon={AddIcon}>Button with icon</Button>
-        <Button kind="secondary" icon={DownloadIcon}>Secondary with icon</Button
-        >
+        <Button icon={Add}>Button with icon</Button>
+        <Button kind="secondary" icon={Download}>Secondary with icon</Button>
     </div>
 
     <CodeSnippet code={exampleCodeIcons} language="svelte" type="multi" />
@@ -311,26 +310,26 @@
     <div class="component-demo demo-button-group">
         <Button
             kind="ghost"
-            icon={SettingsIcon}
+            icon={Settings}
             hasIconOnly
             iconDescription="Settings"
         />
         <Button
             kind="primary"
-            icon={SettingsIcon}
+            icon={Settings}
             hasIconOnly
             iconDescription="Settings"
         />
         <Button
             kind="secondary"
-            icon={SettingsIcon}
+            icon={Settings}
             hasIconOnly
             iconDescription="Settings"
             size="lg"
         />
         <Button
             kind="tertiary"
-            icon={SettingsIcon}
+            icon={Settings}
             hasIconOnly
             iconDescription="Settings"
             size="sm"
@@ -391,9 +390,7 @@
     <div class="component-demo demo-button-group">
         <Button href="https://example.com" target="_blank">Link Button</Button>
         <Button href="/internal/path" kind="secondary">Internal Link</Button>
-        <Button href="#" kind="tertiary" icon={DownloadIcon}
-            >Link with Icon</Button
-        >
+        <Button href="#" kind="tertiary" icon={Download}>Link with Icon</Button>
     </div>
 
     <CodeSnippet code={exampleCodeLink} language="svelte" type="multi" />

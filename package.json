@@ -54,20 +54,19 @@
   },
   "peerDependencies": {
     "@sveltejs/kit": "^2.16.0",
-    "svelte": "^5.0.0",
-    "unplugin-icons": "^22.0.0",
-    "@iconify-json/carbon": "^1.2.0"
+    "carbon-icons-svelte": "^13.3.0",
+    "svelte": "^5.0.0"
   },
   "devDependencies": {
     "@catppuccin/highlightjs": "^1.0.1",
     "@eslint/compat": "^1.2.5",
     "@eslint/js": "^9.18.0",
-    "@iconify-json/carbon": "^1.2.8",
     "@sveltejs/adapter-auto": "^4.0.0",
     "@sveltejs/adapter-node": "^5.2.12",
     "@sveltejs/kit": "^2.16.0",
     "@sveltejs/package": "^2.3.10",
     "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "carbon-icons-svelte": "^13.3.0",
     "eslint": "^9.18.0",
     "eslint-plugin-svelte": "^3.0.0",
     "globals": "^16.0.0",
@@ -77,13 +76,11 @@
     "svelte-check": "^4.0.0",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.20.0",
-    "unplugin-icons": "^22.1.0",
     "vite": "^6.2.5"
   },
   "dependencies": {
-    "highlight.js": "^11.11.1",
     "@catppuccin/highlightjs": "^1.0.1",
-    "@iconify-json/carbon": "^1.2.8",
-    "unplugin-icons": "^22.1.0"
+    "carbon-icons-svelte": "^13.3.0",
+    "highlight.js": "^11.11.1"
   }
 }

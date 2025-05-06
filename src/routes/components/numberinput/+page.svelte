@@ -11,9 +11,9 @@
     import StructuredListHeader from "$lib/components/StructuredList/StructuredListHeader.svelte";
 
     // Icons
-    import CodeIcon from "~icons/carbon/code";
-    import WarningIcon from "~icons/carbon/warning-alt";
-    import ErrorIcon from "~icons/carbon/error";
+    import Code from "carbon-icons-svelte/lib/Code.svelte";
+    import Warning from "carbon-icons-svelte/lib/Warning.svelte";
+    import Error from "carbon-icons-svelte/lib/Error.svelte";
 
     // Page specific state
     let demoValue = 0;
@@ -284,7 +284,7 @@
         <Button
             href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/NumberInput"
             kind="ghost"
-            icon={CodeIcon}
+            icon={Code}
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -435,7 +435,7 @@
             />
             <div class="status-indicator">
                 {#if demoValueInvalid > 20}
-                    <ErrorIcon class="icon-error" />
+                    <Error class="icon-error" />
                     <span>Invalid: Value exceeds maximum</span>
                 {/if}
             </div>
@@ -452,7 +452,7 @@
             />
             <div class="status-indicator">
                 {#if demoValueWarning > 70}
-                    <WarningIcon class="icon-warning" />
+                    <Warning class="icon-warning" />
                     <span>Warning: High usage</span>
                 {/if}
             </div>

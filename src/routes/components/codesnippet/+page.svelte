@@ -10,7 +10,7 @@
     import StructuredListHeader from "$lib/components/StructuredList/StructuredListHeader.svelte";
 
     // Icons
-    import CodeIcon from "~icons/carbon/code"; // For source code button
+    import Code from "carbon-icons-svelte/lib/Code.svelte"; // For source code button
 
     // Page specific state (example code snippets)
     const exampleCodeMulti = `<script lang="ts">
@@ -156,7 +156,7 @@ and line breaks, but without syntax colors.`;
         <Button
             href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/CodeSnippet"
             kind="ghost"
-            icon={CodeIcon}
+            icon={Code}
             target="_blank"
             rel="noopener noreferrer"
         >

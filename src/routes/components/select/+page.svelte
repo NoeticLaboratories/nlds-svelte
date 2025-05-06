@@ -11,28 +11,27 @@
     import StructuredListHeader from "$lib/components/StructuredList/StructuredListHeader.svelte";
 
     // Icons
-    import CodeIcon from "~icons/carbon/code";
+    import Code from "carbon-icons-svelte/lib/Code.svelte";
 
     // Page specific state
     let demoValueBasic: string | undefined = undefined;
     let demoValuePlaceholder: string | undefined = undefined;
-    let demoValuePreselected: string | undefined = 'option-2';
+    let demoValuePreselected: string | undefined = "option-2";
     let lastChangeEventValue: string | undefined | null = null;
 
     const demoOptions = [
-        { value: 'option-1', label: 'Option 1' },
-        { value: 'option-2', label: 'Option 2' },
-        { value: 'option-3', label: 'Option 3 with longer text' },
-        { value: 'option-4', label: 'Option 4' },
+        { value: "option-1", label: "Option 1" },
+        { value: "option-2", label: "Option 2" },
+        { value: "option-3", label: "Option 3 with longer text" },
+        { value: "option-4", label: "Option 4" },
     ];
 
     const demoOptionsNumeric = [
-        { value: 10, label: 'Value 10' },
-        { value: 20, label: 'Value 20' },
-        { value: 30, label: 'Value 30' },
+        { value: 10, label: "Value 10" },
+        { value: 20, label: "Value 20" },
+        { value: 30, label: "Value 30" },
     ];
     let demoValueNumeric: number | undefined = 20;
-
 
     function handleDemoChange(event: CustomEvent<string | number>) {
         lastChangeEventValue = event.detail;
@@ -135,49 +134,57 @@
             name: "value",
             type: "string | number | undefined",
             defaultVal: "undefined",
-            description: "The currently selected value. Use `bind:value` for two-way binding.",
+            description:
+                "The currently selected value. Use `bind:value` for two-way binding.",
         },
         {
             name: "options",
             type: "Array<{value: string | number, label: string}>",
             defaultVal: "[]",
-            description: "An array of objects, each with `value` and `label` properties, to populate the dropdown.",
+            description:
+                "An array of objects, each with `value` and `label` properties, to populate the dropdown.",
         },
         {
             name: "placeholder",
             type: "string | undefined",
             defaultVal: "undefined",
-            description: "Optional text shown as the first, disabled option when no value is selected.",
+            description:
+                "Optional text shown as the first, disabled option when no value is selected.",
         },
         {
             name: "id",
             type: "string | undefined",
             defaultVal: "undefined",
-            description: "Optional ID for the `select` element, useful for associating with a `label`.",
+            description:
+                "Optional ID for the `select` element, useful for associating with a `label`.",
         },
         {
             name: "name",
             type: "string | undefined",
             defaultVal: "undefined",
-            description: "Optional `name` attribute for the `select` element, useful for form submissions.",
+            description:
+                "Optional `name` attribute for the `select` element, useful for form submissions.",
         },
         {
             name: "disabled",
             type: "boolean",
             defaultVal: "false",
-            description: "If true, the select dropdown is disabled and cannot be interacted with.",
+            description:
+                "If true, the select dropdown is disabled and cannot be interacted with.",
         },
-         {
+        {
             name: "$$restProps",
             type: "HTMLSelectAttributes",
             defaultVal: "{}",
-            description: "Allows forwarding any additional standard HTML attributes (e.g., `required`, `aria-label`) to the underlying `select` element.",
+            description:
+                "Allows forwarding any additional standard HTML attributes (e.g., `required`, `aria-label`) to the underlying `select` element.",
         },
         {
             name: "class",
             type: "string",
             defaultVal: "''",
-            description: "Additional CSS classes to apply to the wrapper `div` element.",
+            description:
+                "Additional CSS classes to apply to the wrapper `div` element.",
         },
     ];
 
@@ -185,7 +192,8 @@
         {
             name: "change",
             detail: "string | number | undefined", // The value of the selected option
-            description: "Fired when the selected option changes. The `event.detail` contains the new `value`.",
+            description:
+                "Fired when the selected option changes. The `event.detail` contains the new `value`.",
         },
     ];
 </script>
@@ -204,7 +212,7 @@
         <Button
             href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/Select"
             kind="ghost"
-            icon={CodeIcon}
+            icon={Code}
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -216,7 +224,11 @@
 <!-- Overview Section -->
 <section class="page-section">
     <p class="component-description">
-        The Select component provides a styled dropdown list, allowing users to choose one option from a predefined set. It wraps the native HTML <code>&lt;select&gt;</code> element, providing customization options like placeholders and easy data binding.
+        The Select component provides a styled dropdown list, allowing users to
+        choose one option from a predefined set. It wraps the native HTML <code
+            >&lt;select&gt;</code
+        > element, providing customization options like placeholders and easy data
+        binding.
     </p>
 </section>
 
@@ -224,12 +236,27 @@
 <section class="page-section">
     <h2>Default</h2>
     <p>
-        Provide an array of objects to the <CodeSnippet code="options" type="inline" /> prop. Each object needs a unique <CodeSnippet code="value" type="inline" /> and a display <CodeSnippet code="label" type="inline" />. Use <CodeSnippet code="bind:value" type="inline" /> to track the selected value.
+        Provide an array of objects to the <CodeSnippet
+            code="options"
+            type="inline"
+        /> prop. Each object needs a unique <CodeSnippet
+            code="value"
+            type="inline"
+        /> and a display <CodeSnippet code="label" type="inline" />. Use <CodeSnippet
+            code="bind:value"
+            type="inline"
+        /> to track the selected value.
     </p>
     <div class="component-demo">
-        <label for="select-basic" style="display: block; margin-bottom: 0.5rem;">Choose an option:</label>
-        <Select id="select-basic" options={demoOptions} bind:value={demoValueBasic} />
-        <p class="demo-value">Bound value: {demoValueBasic ?? 'undefined'}</p>
+        <label for="select-basic" style="display: block; margin-bottom: 0.5rem;"
+            >Choose an option:</label
+        >
+        <Select
+            id="select-basic"
+            options={demoOptions}
+            bind:value={demoValueBasic}
+        />
+        <p class="demo-value">Bound value: {demoValueBasic ?? "undefined"}</p>
     </div>
 
     <CodeSnippet code={exampleCodeDefault} language="svelte" type="multi" />
@@ -239,18 +266,26 @@
 <section class="page-section">
     <h2>With Placeholder</h2>
     <p>
-        Use the <CodeSnippet code="placeholder" type="inline" /> prop to display instructional text when no option is initially selected. This placeholder acts as a disabled, hidden option once a real value is chosen.
+        Use the <CodeSnippet code="placeholder" type="inline" /> prop to display
+        instructional text when no option is initially selected. This placeholder
+        acts as a disabled, hidden option once a real value is chosen.
     </p>
 
     <div class="component-demo">
-         <label for="select-placeholder-demo" style="display: block; margin-bottom: 0.5rem;">Select with Placeholder:</label>
+        <label
+            for="select-placeholder-demo"
+            style="display: block; margin-bottom: 0.5rem;"
+            >Select with Placeholder:</label
+        >
         <Select
             id="select-placeholder-demo"
             placeholder="-- Select an item --"
             options={demoOptions}
             bind:value={demoValuePlaceholder}
         />
-         <p class="demo-value">Bound value: {demoValuePlaceholder ?? 'undefined'}</p>
+        <p class="demo-value">
+            Bound value: {demoValuePlaceholder ?? "undefined"}
+        </p>
     </div>
 
     <CodeSnippet code={exampleCodePlaceholder} language="svelte" type="multi" />
@@ -260,12 +295,22 @@
 <section class="page-section">
     <h2>Pre-selected Value</h2>
     <p>
-        Initialize the bound <CodeSnippet code="value" type="inline" /> prop with one of the values from your <CodeSnippet code="options" type="inline" /> array to have that option selected by default.
+        Initialize the bound <CodeSnippet code="value" type="inline" /> prop with
+        one of the values from your <CodeSnippet code="options" type="inline" />
+        array to have that option selected by default.
     </p>
 
     <div class="component-demo">
-        <label for="select-preselected-demo" style="display: block; margin-bottom: 0.5rem;">Pre-selected Value:</label>
-        <Select id="select-preselected-demo" options={demoOptions} bind:value={demoValuePreselected} />
+        <label
+            for="select-preselected-demo"
+            style="display: block; margin-bottom: 0.5rem;"
+            >Pre-selected Value:</label
+        >
+        <Select
+            id="select-preselected-demo"
+            options={demoOptions}
+            bind:value={demoValuePreselected}
+        />
         <p class="demo-value">Bound value: {demoValuePreselected}</p>
     </div>
 
@@ -276,28 +321,45 @@
 <section class="page-section">
     <h2>Numeric Values</h2>
     <p>
-        The <CodeSnippet code="value" type="inline" /> prop and option values can also be numbers. Ensure the bound variable's type matches.
+        The <CodeSnippet code="value" type="inline" /> prop and option values can
+        also be numbers. Ensure the bound variable's type matches.
     </p>
 
     <div class="component-demo">
-        <label for="select-numeric-demo" style="display: block; margin-bottom: 0.5rem;">Numeric Values:</label>
-        <Select id="select-numeric-demo" options={demoOptionsNumeric} bind:value={demoValueNumeric} />
-        <p class="demo-value">Bound value: {demoValueNumeric} (Type: {typeof demoValueNumeric})</p>
+        <label
+            for="select-numeric-demo"
+            style="display: block; margin-bottom: 0.5rem;"
+            >Numeric Values:</label
+        >
+        <Select
+            id="select-numeric-demo"
+            options={demoOptionsNumeric}
+            bind:value={demoValueNumeric}
+        />
+        <p class="demo-value">
+            Bound value: {demoValueNumeric} (Type: {typeof demoValueNumeric})
+        </p>
     </div>
 
     <CodeSnippet code={exampleCodeNumeric} language="svelte" type="multi" />
 </section>
 
-
 <!-- Disabled State Example Section -->
 <section class="page-section">
     <h2>Disabled State</h2>
     <p>
-        Set the <CodeSnippet code="disabled" type="inline" /> prop to <CodeSnippet code="true" type="inline" /> to prevent user interaction with the select component.
+        Set the <CodeSnippet code="disabled" type="inline" /> prop to <CodeSnippet
+            code="true"
+            type="inline"
+        /> to prevent user interaction with the select component.
     </p>
 
     <div class="component-demo">
-         <label for="select-disabled-demo" style="display: block; margin-bottom: 0.5rem;">Disabled Select:</label>
+        <label
+            for="select-disabled-demo"
+            style="display: block; margin-bottom: 0.5rem;"
+            >Disabled Select:</label
+        >
         <Select
             id="select-disabled-demo"
             value="option-1"
@@ -313,23 +375,30 @@
 <section class="page-section">
     <h2>Event Handling</h2>
     <p>
-        Listen for the <CodeSnippet code="change" type="inline" /> event to react when the user selects a different option. The selected value is available in <CodeSnippet code="event.detail" type="inline" />.
+        Listen for the <CodeSnippet code="change" type="inline" /> event to react
+        when the user selects a different option. The selected value is available
+        in <CodeSnippet code="event.detail" type="inline" />.
     </p>
 
     <div class="component-demo">
-        <label for="select-event-demo" style="display: block; margin-bottom: 0.5rem;">Listen to Change:</label>
+        <label
+            for="select-event-demo"
+            style="display: block; margin-bottom: 0.5rem;"
+            >Listen to Change:</label
+        >
         <Select
             id="select-event-demo"
             options={demoOptions}
             placeholder="Select to trigger event"
             on:change={handleDemoChange}
         />
-        <p class="demo-value">Last value from change event: {lastChangeEventValue ?? 'N/A'}</p>
+        <p class="demo-value">
+            Last value from change event: {lastChangeEventValue ?? "N/A"}
+        </p>
     </div>
 
     <CodeSnippet code={exampleCodeEvent} language="svelte" type="multi" />
 </section>
-
 
 <!-- API Documentation Section -->
 <section class="page-section">
@@ -339,10 +408,18 @@
     <h3>Props</h3>
     <StructuredList ariaLabel="Component Props" border condensed>
         <svelte:fragment slot="header">
-            <StructuredListHeader class="sl-cell--weight-1">Name</StructuredListHeader>
-            <StructuredListHeader class="sl-cell--weight-2">Type</StructuredListHeader>
-            <StructuredListHeader class="sl-cell--weight-1">Default</StructuredListHeader>
-            <StructuredListHeader class="sl-cell--weight-3">Description</StructuredListHeader>
+            <StructuredListHeader class="sl-cell--weight-1"
+                >Name</StructuredListHeader
+            >
+            <StructuredListHeader class="sl-cell--weight-2"
+                >Type</StructuredListHeader
+            >
+            <StructuredListHeader class="sl-cell--weight-1"
+                >Default</StructuredListHeader
+            >
+            <StructuredListHeader class="sl-cell--weight-3"
+                >Description</StructuredListHeader
+            >
         </svelte:fragment>
 
         {#each propsData as prop (prop.name)}
@@ -375,9 +452,15 @@
     <h3 style="margin-top: 2rem;">Events</h3>
     <StructuredList ariaLabel="Component Events" border condensed>
         <svelte:fragment slot="header">
-            <StructuredListHeader class="sl-cell--weight-1">Name</StructuredListHeader>
-            <StructuredListHeader class="sl-cell--weight-2">Detail Type</StructuredListHeader>
-            <StructuredListHeader class="sl-cell--weight-3">Description</StructuredListHeader>
+            <StructuredListHeader class="sl-cell--weight-1"
+                >Name</StructuredListHeader
+            >
+            <StructuredListHeader class="sl-cell--weight-2"
+                >Detail Type</StructuredListHeader
+            >
+            <StructuredListHeader class="sl-cell--weight-3"
+                >Description</StructuredListHeader
+            >
         </svelte:fragment>
 
         {#each eventsData as event (event.name)}
@@ -399,7 +482,9 @@
         {/each}
         {#if eventsData.length === 0}
             <StructuredListRow value="no-events">
-                <StructuredListCell><i>No custom events documented.</i></StructuredListCell>
+                <StructuredListCell
+                    ><i>No custom events documented.</i></StructuredListCell
+                >
                 <StructuredListCell></StructuredListCell>
                 <StructuredListCell></StructuredListCell>
             </StructuredListRow>
@@ -413,19 +498,31 @@
     <p>The Select component aims for accessibility:</p>
     <ul>
         <li>
-            Uses a native <code>&lt;select&gt;</code> element, inheriting its accessibility features.
+            Uses a native <code>&lt;select&gt;</code> element, inheriting its accessibility
+            features.
         </li>
         <li>
-            Supports standard label association using the <CodeSnippet code="id" type="inline" /> prop and an external <code>&lt;label for="..."&gt;</code>.
+            Supports standard label association using the <CodeSnippet
+                code="id"
+                type="inline"
+            /> prop and an external <code>&lt;label for="..."&gt;</code>.
         </li>
-         <li>
-            The custom dropdown arrow is decorative and hidden from screen readers using <CodeSnippet code="aria-hidden='true'" type="inline" />.
+        <li>
+            The custom dropdown arrow is decorative and hidden from screen
+            readers using <CodeSnippet
+                code="aria-hidden='true'"
+                type="inline"
+            />.
         </li>
         <li>
             Supports the <CodeSnippet code="disabled" type="inline" /> state.
         </li>
-         <li>
-            Additional accessibility attributes like <CodeSnippet code="aria-label" type="inline" /> or <CodeSnippet code="aria-labelledby" type="inline" /> can be passed via <CodeSnippet code="$$restProps" type="inline" />.
+        <li>
+            Additional accessibility attributes like <CodeSnippet
+                code="aria-label"
+                type="inline"
+            /> or <CodeSnippet code="aria-labelledby" type="inline" /> can be passed
+            via <CodeSnippet code="$$restProps" type="inline" />.
         </li>
     </ul>
 </section>
@@ -529,12 +626,12 @@
     :global(.sl-cell.sl-cell--weight-2),
     :global(.sl-header-cell.sl-cell--weight-2) {
         flex: 2 1 0%;
-         min-width: 150px;
+        min-width: 150px;
     }
     :global(.sl-cell.sl-cell--weight-3),
     :global(.sl-header-cell.sl-cell--weight-3) {
         flex: 3 1 0%;
-         min-width: 200px;
+        min-width: 200px;
     }
 
     /* Ensure inline code snippets fit well */
@@ -550,8 +647,7 @@
     }
     /* Ensure select doesn't take full width unless intended */
     .component-demo :global(.nlds-select-wrapper) {
-         max-width: 300px; /* Example max width */
-         width: 100%; /* Or set auto if you want it to shrink */
+        max-width: 300px; /* Example max width */
+        width: 100%; /* Or set auto if you want it to shrink */
     }
-
 </style>

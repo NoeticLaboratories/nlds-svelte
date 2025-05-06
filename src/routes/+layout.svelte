@@ -4,7 +4,7 @@
     import { page } from "$app/stores";
     import { browser } from "$app/environment";
     import { theme, applyInitialTheme } from "$lib/stores/themeStore.js";
-    import GithubIcon from "~icons/carbon/logo-github";
+    import LogoGithub from "carbon-icons-svelte/lib/LogoGithub.svelte";
 
     // Import components
     import TextInput from "$lib/components/TextInput/TextInput.svelte";
@@ -140,7 +140,7 @@
             </div>
             <div class="topbar-links">
                 <a href={githubLink} target="_blank" rel="noopener noreferrer"
-                    ><GithubIcon style="font-size: 1.2rem;" /></a
+                    ><LogoGithub style="font-size: 1.2rem;" /></a
                 >
             </div>
         </div>
