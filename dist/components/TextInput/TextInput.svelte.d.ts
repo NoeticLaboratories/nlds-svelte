@@ -1,11 +1,11 @@
 export default TextInput;
 type TextInput = SvelteComponent<{
     [x: string]: any;
-    disabled?: boolean | undefined;
     id?: string | undefined;
+    name?: string | undefined;
+    disabled?: boolean | undefined;
     value?: string | undefined;
     placeholder?: string | undefined;
-    name?: string | undefined;
 }, {
     input: CustomEvent<any>;
     change: CustomEvent<any>;
@@ -18,11 +18,11 @@ type TextInput = SvelteComponent<{
 };
 declare const TextInput: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: any;
-    disabled?: boolean | undefined;
     id?: string | undefined;
+    name?: string | undefined;
+    disabled?: boolean | undefined;
     value?: string | undefined;
     placeholder?: string | undefined;
-    name?: string | undefined;
 }, {
     input: CustomEvent<any>;
     change: CustomEvent<any>;

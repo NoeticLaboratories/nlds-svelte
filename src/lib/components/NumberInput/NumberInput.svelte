@@ -2,8 +2,8 @@
     // No changes needed in the script section for variable updates
     import { createEventDispatcher, onMount } from "svelte";
     // Import icons (install carbon-icons-svelte if you haven't)
-    import ErrorFilled from "~icons/carbon/error-filled";
-    import WarningFilled from "~icons/carbon/warning-filled";
+    import ErrorFilled from "carbon-icons-svelte/lib/ErrorFilled.svelte";
+    import WarningFilled from "carbon-icons-svelte/lib/WarningFilled.svelte";
 
     // --- Props ---
     /** Input Label */
@@ -349,12 +349,14 @@
 
     /* Focus State */
     .themed-ni-field:focus:not([readonly]) {
-        outline: var(--ni-outline-width) solid var(--nlds-accent-primary, #ff9351);
+        outline: var(--ni-outline-width) solid
+            var(--nlds-accent-primary, #ff9351);
         outline-offset: var(--ni-outline-offset);
     }
 
     /* Hide steppers padding adjustment */
-    .themed-ni-wrapper:not(.themed-ni-wrapper--readonly) .themed-ni-field:not(.themed-ni-steppers + *) {
+    .themed-ni-wrapper:not(.themed-ni-wrapper--readonly)
+        .themed-ni-field:not(.themed-ni-steppers + *) {
         padding-right: var(--ni-padding-horizontal);
     }
 
@@ -542,12 +544,18 @@
         color: var(--nlds-disabled-text);
     }
     /* Light variant invalid/warning still use local placeholders for border/text */
-    .themed-ni-wrapper--light.themed-ni-wrapper--invalid .themed-ni-helper-text {
-        color: var(--danger-color); /* Or adjust if light theme needs different danger color */
+    .themed-ni-wrapper--light.themed-ni-wrapper--invalid
+        .themed-ni-helper-text {
+        color: var(
+            --danger-color
+        ); /* Or adjust if light theme needs different danger color */
         fill: var(--danger-color);
     }
-     .themed-ni-wrapper--light.themed-ni-wrapper--warning .themed-ni-helper-text {
-        color: var(--warning-color); /* Or adjust if light theme needs different warning color */
+    .themed-ni-wrapper--light.themed-ni-wrapper--warning
+        .themed-ni-helper-text {
+        color: var(
+            --warning-color
+        ); /* Or adjust if light theme needs different warning color */
         fill: var(--warning-color);
     }
 

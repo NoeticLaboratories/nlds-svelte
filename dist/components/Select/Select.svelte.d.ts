@@ -1,15 +1,15 @@
 export default Select;
 type Select = SvelteComponent<{
     [x: string]: any;
-    disabled?: boolean | undefined;
     id?: string | undefined;
+    name?: string | undefined;
+    disabled?: boolean | undefined;
     value?: string | number | undefined;
     options?: {
         value: string | number;
         label: string;
     }[] | undefined;
     placeholder?: string | undefined;
-    name?: string | undefined;
 }, {
     change: CustomEvent<any>;
 } & {
@@ -19,15 +19,15 @@ type Select = SvelteComponent<{
 };
 declare const Select: $$__sveltets_2_IsomorphicComponent<{
     [x: string]: any;
-    disabled?: boolean | undefined;
     id?: string | undefined;
+    name?: string | undefined;
+    disabled?: boolean | undefined;
     value?: string | number | undefined;
     options?: {
         value: string | number;
         label: string;
     }[] | undefined;
     placeholder?: string | undefined;
-    name?: string | undefined;
 }, {
     change: CustomEvent<any>;
 } & {

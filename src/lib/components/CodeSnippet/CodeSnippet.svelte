@@ -1,9 +1,9 @@
 <script lang="ts">
-    import { tick, onDestroy } from "svelte";
+    import { onDestroy } from "svelte";
     import { browser } from "$app/environment";
     import "@catppuccin/highlightjs/css/catppuccin-latte.css";
-    import CopyIcon from "~icons/carbon/copy";
-   	import Tooltip from '../Tooltip/Tooltip.svelte';
+    import Copy from "carbon-icons-svelte/lib/Copy.svelte";
+    import Tooltip from "../Tooltip/Tooltip.svelte";
 
     // --- highlight.js setup ---
     import hljs from "highlight.js/lib/core";
@@ -209,7 +209,6 @@
     }
 </script>
 
-
 {#if isInline}
     <code class="themed-cs--inline hljs {language} {className}">
         <!-- Use {@html} only if highlighting is enabled and successful -->
@@ -247,35 +246,39 @@
             </button>
         {/if}
 
-        {#if type !== 'inline'}
-			<div class="themed-cs-copy-btn-container">
-                        <!-- The Button itself -->
-				<button
-					class="themed-cs-copy-btn"
-					class:themed-cs--copied={copyStatus === 'copied'}
-					on:click={handleCopy}
-					aria-label={copyButtonDescription}
-					aria-describedby={copyStatus === 'copied' ? 'copy-tooltip' : undefined}
-					disabled={copyStatus === 'copied'}
-					type="button"
-				>
-					<!-- Only show icon -->
-                            <CopyIcon aria-hidden="true" size={16} />
-                            <span class="themed-visually-hidden">{copyButtonDescription}</span>
-				</button>
+        {#if type !== "inline"}
+            <div class="themed-cs-copy-btn-container">
+                <!-- The Button itself -->
+                <button
+                    class="themed-cs-copy-btn"
+                    class:themed-cs--copied={copyStatus === "copied"}
+                    on:click={handleCopy}
+                    aria-label={copyButtonDescription}
+                    aria-describedby={copyStatus === "copied"
+                        ? "copy-tooltip"
+                        : undefined}
+                    disabled={copyStatus === "copied"}
+                    type="button"
+                >
+                    <!-- Only show icon -->
+                    <Copy aria-hidden="true" size={16} />
+                    <span class="themed-visually-hidden"
+                        >{copyButtonDescription}</span
+                    >
+                </button>
 
-                        <!-- The Tooltip, controlled by copyStatus -->
-                        <Tooltip
-					id="copy-tooltip"
-                            text={copyFeedback}
-                            open={copyStatus === 'copied'}
-                            position="top"
-                        />
+                <!-- The Tooltip, controlled by copyStatus -->
+                <Tooltip
+                    id="copy-tooltip"
+                    text={copyFeedback}
+                    open={copyStatus === "copied"}
+                    position="top"
+                />
 
-				<!-- REMOVED the old hover/focus span tooltip -->
-				<!-- <span class="themed-cs-copy-tooltip">{copyButtonDescription}</span> -->
-			</div>
-		{/if}
+                <!-- REMOVED the old hover/focus span tooltip -->
+                <!-- <span class="themed-cs-copy-tooltip">{copyButtonDescription}</span> -->
+            </div>
+        {/if}
     </div>
 {/if}
 
@@ -298,8 +301,9 @@
         --cs-button-text-color: var(--nlds-text-secondary, #525252);
         --cs-button-text-hover: var(--nlds-text-primary, #161616);
         --cs-copy-feedback-color: var(
-            --nlds-success-color, /* Consider adding --nlds-success-color to core */
-            #198038 /* Default green if not defined */
+            --nlds-success-color,
+            /* Consider adding --nlds-success-color to core */ #198038
+                /* Default green if not defined */
         );
         --cs-line-height: 1.4; /* Component specific */
         --cs-font-family: var(--nlds-font-mono, monospace);
@@ -370,9 +374,7 @@
     .themed-cs-container.themed-cs--single .themed-cs-pre {
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
-        padding-right: calc(
-            var(--cs-button-size) + var(--cs-padding) * 0.5
-        );
+        padding-right: calc(var(--cs-button-size) + var(--cs-padding) * 0.5);
         overflow-x: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -484,12 +486,12 @@
 
     /* --- Copy Button Specific --- */
     .themed-cs-copy-btn-container {
-		position: absolute; /* Absolute within .themed-cs-container */
-		top: 0;
-		right: 0;
-		padding: calc(var(--cs-padding) / 2); /* Consistent spacing */
-		z-index: 2;
-	}
+        position: absolute; /* Absolute within .themed-cs-container */
+        top: 0;
+        right: 0;
+        padding: calc(var(--cs-padding) / 2); /* Consistent spacing */
+        z-index: 2;
+    }
     .themed-cs-copy-btn {
         position: relative; /* Relative positioning is fine now */
     }

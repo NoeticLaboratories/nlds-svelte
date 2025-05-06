@@ -1,5 +1,6 @@
 <script lang="ts">
-    import type { ComponentType, SvelteComponent } from "svelte";
+    import type { Component } from "svelte";
+    import type { CarbonIconProps } from "carbon-icons-svelte";
     import { createEventDispatcher } from "svelte";
 
     /** The visual style of the button */
@@ -16,7 +17,7 @@
     export let href: string | undefined = undefined;
 
     /** Optional: The Svelte component to use as the icon */
-    export let icon: ComponentType<SvelteComponent> | undefined = undefined;
+    export let icon: Component<CarbonIconProps> | undefined = undefined;
 
     /** Required if `icon` is provided and `hasIconOnly` is true. Describes the icon for screen readers. */
     export let iconDescription: string | undefined = undefined;
@@ -152,9 +153,18 @@
         --nlds-btn-height-sm: 2rem; /* 32px */
         --nlds-btn-height-md: 2.5rem; /* 40px */
         --nlds-btn-height-lg: 3rem; /* 48px */
-        --nlds-btn-padding-sm: calc((var(--nlds-btn-height-sm) - var(--nlds-btn-font-size-sm) * 1.375) / 2 - var(--nlds-btn-border-width)); /* Dynamic padding based on height/line-height */
-        --nlds-btn-padding-md: calc((var(--nlds-btn-height-md) - var(--nlds-btn-font-size-md) * 1.375) / 2 - var(--nlds-btn-border-width));
-        --nlds-btn-padding-lg: calc((var(--nlds-btn-height-lg) - var(--nlds-btn-font-size-lg) * 1.375) / 2 - var(--nlds-btn-border-width));
+        --nlds-btn-padding-sm: calc(
+            (var(--nlds-btn-height-sm) - var(--nlds-btn-font-size-sm) * 1.375) /
+                2 - var(--nlds-btn-border-width)
+        ); /* Dynamic padding based on height/line-height */
+        --nlds-btn-padding-md: calc(
+            (var(--nlds-btn-height-md) - var(--nlds-btn-font-size-md) * 1.375) /
+                2 - var(--nlds-btn-border-width)
+        );
+        --nlds-btn-padding-lg: calc(
+            (var(--nlds-btn-height-lg) - var(--nlds-btn-font-size-lg) * 1.375) /
+                2 - var(--nlds-btn-border-width)
+        );
         --nlds-btn-border-radius: 0px; /* Default to 0, adjust as needed */
         --nlds-btn-border-width: 1px;
         --nlds-btn-outline-width: 2px;
@@ -197,7 +207,8 @@
     }
 
     .themed-btn:focus-visible {
-        outline: var(--nlds-btn-outline-width) solid var(--nlds-accent-primary, #ff9351);
+        outline: var(--nlds-btn-outline-width) solid
+            var(--nlds-accent-primary, #ff9351);
         outline-offset: var(--nlds-btn-outline-offset);
     }
     .themed-btn:focus {

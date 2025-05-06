@@ -1,5 +1,5 @@
-import { SvelteComponent } from "svelte";
-import type { ComponentType } from "svelte";
+import type { Component } from "svelte";
+import type { CarbonIconProps } from "carbon-icons-svelte";
 interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
     new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
         $$bindings?: Bindings;
@@ -24,7 +24,7 @@ declare const Button: $$__sveltets_2_IsomorphicComponent<$$__sveltets_2_PropsWit
     size?: "sm" | "md" | "lg" | undefined;
     disabled?: boolean | undefined;
     href?: string | undefined | undefined;
-    icon?: ComponentType<SvelteComponent<Record<string, any>, any, any>> | undefined;
+    icon?: Component<CarbonIconProps, {}, string> | undefined;
     iconDescription?: string | undefined | undefined;
     hasIconOnly?: boolean | undefined;
     type?: "button" | "submit" | "reset" | undefined;

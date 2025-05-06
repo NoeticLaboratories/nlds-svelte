@@ -1,5 +1,5 @@
 <script>
-    import ChevronDownIcon from "~icons/carbon/chevron-down";
+    import ChevronDown from "carbon-icons-svelte/lib/ChevronDown.svelte";
 
     /**
      * The currently selected value. Bindable.
@@ -82,7 +82,7 @@
         {/each}
     </select>
     <div class="nlds-select-arrow" aria-hidden="true">
-        <ChevronDownIcon />
+        <ChevronDown />
     </div>
 </div>
 
