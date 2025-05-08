@@ -7,9 +7,9 @@
     --nlds-font-mono: "IBM Plex Mono", monospace;
 
     /* Accent Colors */
-    --nlds-accent-primary: #ff9351;
-    --nlds-accent-primary-hover: #ff7f2e;
-    --nlds-accent-primary-active: #f07733;
+    --nlds-accent-primary: #5d3fd3;
+    --nlds-accent-primary-hover: #4f35b3;
+    --nlds-accent-primary-active: #4229a3;
 
     /* White Theme (Default) */
     --nlds-bg-primary: #ffffff;
@@ -29,7 +29,7 @@
     --nlds-input-focus-border: var(
         --nlds-accent-primary
     ); /* Updated reference */
-    --nlds-input-focus-shadow: rgba(255, 147, 81, 0.3);
+    --nlds-input-focus-shadow: rgba(93, 63, 211, 0.3);
     --nlds-disabled-bg: #f4f4f4;
     --nlds-disabled-text: #a8a8a8;
     --nlds-scrollbar-thumb: #c6c6c6;
@@ -90,6 +90,14 @@
     /* --nlds-inverse-02 inherits from :root */
     /* --nlds-shadow inherits from :root */
     color-scheme: light;
+}
+
+[data-theme="b80"],
+[data-theme="b90"],
+[data-theme="b100"] {
+    --nlds-accent-primary: #7b61e3; /* Slightly lighter Iris for dark themes */
+    --nlds-accent-primary-hover: #8a73ed;
+    --nlds-accent-primary-active: #5d3fd3;
 }
 
 /* b80 Theme (Dark Gray) */
