@@ -5,23 +5,42 @@
     // import InfoIcon from '~icons/carbon/information';
 
     // Page specific data for colors extracted from the provided CSS
-    const accentColors = [
-        {
-            name: "--nlds-accent-primary",
-            value: "#5d3fd3",
-            description: "Primary interactive color",
-        },
-        {
-            name: "--nlds-accent-primary-hover",
-            value: "#4f35b3",
-            description: "Hover state for primary accent",
-        },
-        {
-            name: "--nlds-accent-primary-active",
-            value: "#4229a3",
-            description: "Active state for primary accent",
-        },
-    ];
+    const accentColors = {
+        light: [
+            {
+                name: "--nlds-accent-primary",
+                value: "#5d3fd3",
+                description: "Primary interactive color (light themes)",
+            },
+            {
+                name: "--nlds-accent-primary-hover",
+                value: "#4f35b3",
+                description: "Hover state for primary accent (light themes)",
+            },
+            {
+                name: "--nlds-accent-primary-active",
+                value: "#4229a3",
+                description: "Active state for primary accent (light themes)",
+            },
+        ],
+        dark: [
+            {
+                name: "--nlds-accent-primary",
+                value: "#7b61e3",
+                description: "Primary interactive color (dark themes)",
+            },
+            {
+                name: "--nlds-accent-primary-hover",
+                value: "#8a73ed",
+                description: "Hover state for primary accent (dark themes)",
+            },
+            {
+                name: "--nlds-accent-primary-active",
+                value: "#5d3fd3",
+                description: "Active state for primary accent (dark themes)",
+            },
+        ],
+    };
 
     const themes = [
         {
@@ -249,10 +268,34 @@
     <h2>Accent Colors</h2>
     <p>
         Accent colors are used for primary interactive elements like buttons and
-        focused inputs.
+        focused inputs. The system uses different accent colors for light and
+        dark themes to maintain proper contrast and visibility.
+    </p>
+
+    <h3>Light Theme Accent Colors</h3>
+    <p class="color-theme-description">
+        Used in White (Default) and b10 themes.
     </p>
     <div class="color-grid">
-        {#each accentColors as color}
+        {#each accentColors.light as color}
+            <div class="color-card">
+                <div
+                    class="color-swatch"
+                    style="background-color: {color.value};"
+                ></div>
+                <div class="color-info">
+                    <CodeSnippet code={color.name} type="inline" />
+                    <span class="hex-value">{color.value}</span>
+                    <p class="color-description">{color.description}</p>
+                </div>
+            </div>
+        {/each}
+    </div>
+
+    <h3>Dark Theme Accent Colors</h3>
+    <p class="color-theme-description">Used in b80, b90, and b100 themes.</p>
+    <div class="color-grid">
+        {#each accentColors.dark as color}
             <div class="color-card">
                 <div
                     class="color-swatch"
