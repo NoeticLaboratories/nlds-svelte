@@ -9,4 +9,5 @@ export { default as StructuredListRow } from "./components/StructuredList/Struct
 export { default as StructuredListCell } from "./components/StructuredList/StructuredListCell.svelte";
 export { default as StructuredListHeader } from "./components/StructuredList/StructuredListHeader.svelte";
 
+export { default as TextInput } from "./components/TextInput/TextInput.svelte";
 export { default as Tooltip } from "./components/Tooltip/Tooltip.svelte";

@@ -78,14 +78,14 @@
             type: "string | undefined",
             defaultVal: "undefined",
             description:
-                "If provided, renders the card as an anchor (`<a>`) tag. The card becomes fully interactive as a link.",
+                "If provided, renders the card as an anchor (`a`) tag. The card becomes fully interactive as a link.",
         },
         {
             name: "target",
             type: "string | undefined",
             defaultVal: "undefined",
             description:
-                "Specifies the `target` attribute for the anchor (`<a>`) tag (only applies if `href` is set). Common values include `_blank`, `_self`, `_parent`, `_top`.",
+                "Specifies the `target` attribute for the anchor (`a`) tag (only applies if `href` is set). Common values include `_blank`, `_self`, `_parent`, `_top`.",
         },
         {
             name: "rel",
@@ -93,14 +93,14 @@
             defaultVal:
                 "'noopener noreferrer' (if target='_blank' and `rel` is not provided)",
             description:
-                "Specifies the `rel` attribute for the anchor (`<a>`) tag (only applies if `href` is set). Automatically defaults to `noopener noreferrer` if `target='_blank'` to enhance security.",
+                "Specifies the `rel` attribute for the anchor (`a`) tag (only applies if `href` is set). Automatically defaults to `noopener noreferrer` if `target='_blank'` to enhance security.",
         },
         {
             name: "clickable",
             type: "boolean",
             defaultVal: "false",
             description:
-                "If `true` and `href` is not set, the card (rendered as a `<div>`) becomes interactive: it's focusable, and emits a `click` event on mouse click or when the Enter/Space key is pressed while focused.",
+                "If `true` and `href` is not set, the card (rendered as a `div`) becomes interactive: it's focusable, and emits a `click` event on mouse click or when the Enter/Space key is pressed while focused.",
         },
         {
             name: "ariaLabel",
@@ -114,7 +114,7 @@
             type: "string",
             defaultVal: "''",
             description:
-                "Additional CSS classes to apply to the card's root element (`<a>` or `<div>`).",
+                "Additional CSS classes to apply to the card's root element (`a` or `div`).",
         },
     ];
 
@@ -123,16 +123,9 @@
             name: "click",
             detail: "MouseEvent | KeyboardEvent",
             description:
-                "Fired when an interactive card is activated. This applies if the card has an `href` (rendered as `<a>`) and is clicked, or if `clickable` is `true` (rendered as `<div>`) and it's clicked with a mouse or activated via keyboard (Enter or Space key).",
+                "Fired when an interactive card is activated. This applies if the card has an `href` (rendered as `a`) and is clicked, or if `clickable` is `true` (rendered as `div`) and it's clicked with a mouse or activated via keyboard (Enter or Space key).",
         },
     ];
-
-    // Get current date for "Updated on"
-    const currentDate = new Date().toLocaleDateString("en-CA", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-    });
 </script>
 
 <!-- Page Title -->
@@ -142,7 +135,7 @@
 <section class="page-section">
     <div class="component-header">
         <div class="info">
-            <time datetime={currentDate}>Updated on {currentDate}</time>
+            <time datetime="2025-05-10">Updated on 2025-05-10</time>
         </div>
         <Button
             href="https://github.com/NoeticLaboratories/nlds-svelte/tree/main/src/lib/components/Card"
@@ -408,36 +401,45 @@
 </section>
 
 <style>
-    /* --- General Page Styles (reused from Button example) --- */
+    /* General Page Styles */
     h1 {
         margin-bottom: 1rem;
     }
+
     h2 {
         margin-top: 2.5rem;
         margin-bottom: 1rem;
-        border-bottom: 1px solid var(--nlds-border-subtle-01, #e0e0e0); /* Using a more Carbon-like var */
+        border-bottom: 1px solid var(--nlds-border-color, #e0e0e0);
         padding-bottom: 0.5rem;
     }
+
     h3 {
         margin-top: 1.5rem;
         margin-bottom: 0.75rem;
         font-weight: 600;
     }
+
     p {
         margin-bottom: 1rem;
         line-height: 1.6;
     }
+
     ul {
         margin-left: 1.5rem;
         margin-bottom: 1.5rem;
     }
+
     li {
         margin-bottom: 0.5rem;
         line-height: 1.6;
     }
+
+    /* Section spacing */
     .page-section {
         margin-bottom: 3rem;
     }
+
+    /* Component Description */
     .component-description {
         font-size: 1rem;
         margin-bottom: 2rem;
@@ -446,14 +448,13 @@
     /* Component Header */
     .component-header {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap; /* Allow wrapping on small screens */
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
-        padding-bottom: 1rem; /* Added padding for visual separation */
-        font-size: 0.875rem;
-        border-bottom: 1px solid var(--nlds-border-subtle-01, #e0e0e0);
-        gap: 1rem;
+        font-size: 0.875rem; /* 14px */
+        border-bottom: 1px solid var(--nlds-border-color, #e0e0e0);
+        gap: 1rem; /* Add gap for wrapping */
     }
     .component-header .info {
         font-family: var(--nlds-font-sans, sans-serif);
@@ -489,18 +490,13 @@
         /* Styles for cards within the demo grid if needed, e.g., ensuring they don't get too wide if only one */
     }
     .demo-card-container h4,
-    :global(.component-demo .themed-card h4) {
-        font-size: 1.125rem; /* 18px */
-        margin-top: 0;
-        margin-bottom: 0.75rem;
-    }
-    :global(.component-demo .themed-card p) {
-        font-size: 0.875rem; /* 14px */
-        line-height: 1.5;
-        margin-bottom: 0; /* Remove default bottom margin for last p in card */
-    }
-    :global(.component-demo .themed-card p + p) {
-        margin-top: 0.5rem; /* Add space between paragraphs if there are multiple */
+    .component-demo {
+        padding: 2rem;
+        border: 1px solid var(--nlds-border-color, #e0e0e0);
+        border-radius: 0;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        background-color: var(--nlds-bg-tertirary, #f4f4f4);
     }
 
     /* API Docs Specific Styles (using StructuredList) - Copied from Button example */
