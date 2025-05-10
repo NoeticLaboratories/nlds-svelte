@@ -1,112 +1,142 @@
 <script>
-  /**
-   * The current value of the input. Bindable.
-   * @type {string}
-   */
-  export let value = '';
+    /**
+     * The current value of the input. Bindable.
+     * @type {string}
+     */
+    export let value = "";
 
-  /**
-   * Placeholder text for the input.
-   * @type {string}
-   */
-  export let placeholder = '';
+    /**
+     * Label text for the input. If not provided, no label will be rendered.
+     * @type {string | undefined}
+     */
+    export let label = undefined;
 
-  /**
-   * Optional ID for the input element, useful for label association.
-   * @type {string | undefined}
-   */
-  export let id = undefined;
+    /**
+     * Placeholder text for the input.
+     * @type {string}
+     */
+    export let placeholder = "";
 
-  /**
-   * Optional name attribute for the input element.
-   * @type {string | undefined}
-   */
-  export let name = undefined;
+    /**
+     * Optional ID for the input element, useful for label association.  If not provided, a random ID will be generated.
+     * @type {string | undefined}
+     */
+    export let id = undefined;
 
-   /**
-   * Whether the input is disabled.
-   * @type {boolean}
-   */
-  export let disabled = false;
+    $: internalId = id ?? `text-input-${Math.random().toString(36).slice(2)}`;
 
-  /**
-   * Exposes any other attributes passed to the component (e.g., maxlength, required, aria-label).
-   */
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
+    /**
+     * Optional name attribute for the input element.
+     * @type {string | undefined}
+     */
+    export let name = undefined;
 
-  // Forward common input events if needed, or rely on bind:value for changes.
-  function handleInput(event) {
-    // This updates the bound `value` prop automatically via bind:value
-    // But we can also explicitly dispatch the 'input' event if consumers need it
-    dispatch('input', event.target.value);
-  }
+    /**
+     * Whether the input is disabled.
+     * @type {boolean}
+     */
+    export let disabled = false;
 
-  function handleChange(event) {
-      dispatch('change', event.target.value);
-  }
+    /**
+     * Exposes any other attributes passed to the component (e.g., maxlength, required, aria-label).
+     */
+    import { createEventDispatcher } from "svelte";
+    const dispatch = createEventDispatcher();
 
-  function handleFocus(event) {
-      dispatch('focus', event);
-  }
+    // Forward common input events if needed, or rely on bind:value for changes.
+    function handleInput(event) {
+        // This updates the bound `value` prop automatically via bind:value
+        // But we can also explicitly dispatch the 'input' event if consumers need it
+        dispatch("input", event.target.value);
+    }
 
-  function handleBlur(event) {
-      dispatch('blur', event);
-  }
+    function handleChange(event) {
+        dispatch("change", event.target.value);
+    }
 
+    function handleFocus(event) {
+        dispatch("focus", event);
+    }
+
+    function handleBlur(event) {
+        dispatch("blur", event);
+    }
 </script>
 
-<input
-  type="text"
-  class="nlds-text-input"
-  {id}
-  {name}
-  {placeholder}
-  {disabled}
-  bind:value
-  on:input={handleInput}
-  on:change={handleChange}
-  on:focus={handleFocus}
-  on:blur={handleBlur}
-  {...$$restProps}
-/>
+<div>
+    {#if label}
+        <label for={internalId} class="nlds-form-element__label">
+            {label}
+        </label>
+    {/if}
+    <input
+        type="text"
+        class="nlds-text-input nlds-form-element__control"
+        id={internalId}
+        {name}
+        {placeholder}
+        {disabled}
+        bind:value
+        on:input={handleInput}
+        on:change={handleChange}
+        on:focus={handleFocus}
+        on:blur={handleBlur}
+        {...$$restProps}
+    />
+</div>
 
 <style>
-  .nlds-text-input {
-    display: block; /* Or inline-block if preferred */
-    width: 100%; /* Take up container width */
-    padding: 0.5rem 0.75rem; /* Adjust padding as needed */
-    font-size: 1rem;
-    font-family: inherit; /* Use the font from the surrounding context */
-    line-height: 1.5;
-    color: var(--nlds-input-text);
-    background-color: var(--nlds-input-bg);
-    background-clip: padding-box;
-    border: 1px solid var(--nlds-input-border);
-    appearance: none; /* Remove default system styling */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
+    .nlds-form-element__label {
+        display: block;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.33;
+        margin-bottom: 0.5rem;
+        color: var(--nlds-text-secondary, #525252);
+        line-height: 1.33;
+        cursor: default;
+    }
 
-  /* Minimal focus state */
-  .nlds-text-input:focus {
-    color: var(--nlds-input-text);
-    background-color: var(--nlds-input-bg);
-    /* border-color: #86b7fe; /* Highlight color on focus */
-    outline: 2px solid var(--nlds-input-focus-border);
-    outline-offset: -2px;
-    /* box-shadow: 0 0 0 0.2rem var(--input-focus-shadow); */
-  }
+    .nlds-text-input {
+        display: block; /* Or inline-block if preferred */
+        width: 100%; /* Take up container width */
+        padding: 0.5rem 0.75rem; /* Adjust padding as needed */
+        font-size: 1rem;
+        font-family: inherit; /* Use the font from the surrounding context */
+        line-height: 1.5;
+        color: var(--nlds-input-text);
+        background-color: var(--nlds-input-bg);
+        background-clip: padding-box;
+        border: 1px solid var(--nlds-input-border);
+        appearance: none; /* Remove default system styling */
+        box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    }
 
-  /* Placeholder styling */
-  .nlds-text-input::placeholder {
-    color: #6c757d;
-    opacity: 1;
-  }
+    .nlds-form-element__control {
+        width: 100%;
+        display: block;
+    }
 
-  /* Disabled state */
-  .nlds-text-input:disabled {
-    background-color: var(--nlds-disabled-bg);
-    opacity: 1;
-    cursor: not-allowed;
-  }
+    /* Minimal focus state */
+    .nlds-text-input:focus {
+        color: var(--nlds-input-text);
+        background-color: var(--nlds-input-bg);
+        /* border-color: #86b7fe; /* Highlight color on focus */
+        outline: 2px solid var(--nlds-input-focus-border);
+        outline-offset: -2px;
+        /* box-shadow: 0 0 0 0.2rem var(--input-focus-shadow); */
+    }
+
+    /* Placeholder styling */
+    .nlds-text-input::placeholder {
+        color: #6c757d;
+        opacity: 1;
+    }
+
+    /* Disabled state */
+    .nlds-text-input:disabled {
+        background-color: var(--nlds-disabled-bg);
+        opacity: 1;
+        cursor: not-allowed;
+    }
 </style>
