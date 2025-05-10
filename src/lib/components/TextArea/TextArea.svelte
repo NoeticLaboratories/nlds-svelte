@@ -355,7 +355,7 @@
     .themed-textarea-wrapper {
         position: relative;
         display: flex;
-        background-color: var(--nlds-textarea-bg);
+        background-color: var(--nlds-bg-primary);
         border-radius: var(--nlds-textarea-border-radius);
         border: var(--nlds-textarea-border-width) solid
             var(--nlds-textarea-border-color);
@@ -388,7 +388,7 @@
         font-family: var(--nlds-textarea-font-family);
         font-size: var(--nlds-textarea-font-size);
         line-height: var(--nlds-textarea-line-height);
-        color: var(--nlds-textarea-text-color);
+        color: var(--nlds-text-primary);
         background-color: transparent; /* Inherits from wrapper or is transparent */
         padding: var(--nlds-textarea-padding);
         border: none; /* Border is on wrapper */
