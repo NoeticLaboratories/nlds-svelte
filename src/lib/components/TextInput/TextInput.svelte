@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     /**
      * The current value of the input. Bindable.
      * @type {string}
@@ -37,6 +37,10 @@
      */
     export let disabled = false;
 
+    /** Additional classes for the wrapper */
+    let className: string = "";
+    export { className as class };
+
     /**
      * Exposes any other attributes passed to the component (e.g., maxlength, required, aria-label).
      */
@@ -63,7 +67,7 @@
     }
 </script>
 
-<div>
+<div class={className}>
     {#if label}
         <label for={internalId} class="nlds-form-element__label">
             {label}
@@ -88,7 +92,7 @@
 <style>
     .nlds-form-element__label {
         display: block;
-        font-size: 0.875rem;
+        font-size: 0.75rem;
         font-weight: 400;
         line-height: 1.33;
         margin-bottom: 0.5rem;
