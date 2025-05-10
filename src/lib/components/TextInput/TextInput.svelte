@@ -37,6 +37,12 @@
      */
     export let disabled = false;
 
+    /**
+     * Whether the input is private (passkey).
+     * @type {boolean}
+     */
+    export let passkey = false;
+
     /** Additional classes for the wrapper */
     let className: string = "";
     export { className as class };
@@ -74,7 +80,7 @@
         </label>
     {/if}
     <input
-        type="text"
+        type={passkey ? "password" : "text"}
         class="nlds-text-input nlds-form-element__control"
         id={internalId}
         {name}
